@@ -9,7 +9,6 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @current_user = User.find_by(id: session[:user_id])
     @offer.user_id = @current_user
-    @offer.active = true
     if @offer.save
       redirect_to offer_path(@offer)
     else
