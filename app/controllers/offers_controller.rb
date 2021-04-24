@@ -15,7 +15,7 @@ class OffersController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @offer = Offer.find(params[:id])
   end
