@@ -2,7 +2,7 @@
 <%= simple_form_for @offer do |f| %>
   <%= f.input :game_name %>
   <%= f.input :description %>
-  <%= f.input :game_condition %>
+  <%= f.input :game_condition, collection: [ "As new", "Good condition", "Used", "Poor"] %>
   <%= f.input :price %>
   <%= f.input :location %>
   <%= f.input :delivery_type %>
