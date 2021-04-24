@@ -14,10 +14,10 @@ thomas = User.create!( {name: 'Thomas', email: 'thomas@gmail.com', password: '12
 
 p 'Users created!'
 
-sevenWonders = Offer.create!( {user_id: 1, game_name: '7 Wonders', description: 'great game', price: 20, location: 'Paris', delivery_type: 'Colissimo', language: 'French', active: true} )
-monopoly = Offer.create!( {user_id: 2, game_name: 'Monopoly', description: 'I hate this game and want to sell it', price: 5, location: 'Lille', delivery_type: 'In-person', language: 'French', active: true} )
-scythe = Offer.create!( {user_id: 3, game_name: 'Scythe', description: "don't understand this game", price: 35, location: 'London', delivery_type: 'In-person', language: 'English', active: true} )
-wingspan = Offer.create!( {user_id: 3, game_name: 'Wingspan', description: "beautiful game but I don't like birds", price: 40, location: 'London', delivery_type: ['Colissimo', 'In-person'], language: 'English', active: false} )
+sevenWonders = Offer.create!( {user_id: 1, game_name: '7 Wonders', description: 'great game', price: 20, game_condition: 'As new', location: 'Paris', delivery_type: 'Colissimo', language: 'French', active: true} )
+monopoly = Offer.create!( {user_id: 2, game_name: 'Monopoly', description: 'I hate this game and want to sell it',price: 5,  game_condition: 'Good condition', location: 'Lille', delivery_type: 'In-person', language: 'French', active: true} )
+scythe = Offer.create!( {user_id: 3, game_name: 'Scythe', description: "don't understand this game", price: 35, game_condition: 'Poor', location: 'London', delivery_type: 'In-person', language: 'English', active: true} )
+wingspan = Offer.create!( {user_id: 3, game_name: 'Wingspan', description: "beautiful game but I don't like birds", price: 40, game_condition: 'Used', location: 'London', delivery_type: ['Colissimo', 'In-person'], language: 'English', active: false} )
 
 p 'offers created!'
 

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 d-flex">
+      <% @offers.each do |offer| %>
+      <div class="card m-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= offer.game_name %></h5>
+          <p class="card-text"><%= offer.description %></p>
+          <div class="">
+            <div class="d-flex mb-2 align-items-center justify-content-between">
+              <span class="badge badge-primary"><%= offer.game_condition %></span>
+              <span class="card-text"><%= offer.price.round(2) %> €</span>
+            </div>
+            <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
