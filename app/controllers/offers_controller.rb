@@ -24,6 +24,18 @@ class OffersController < ApplicationController
     authorize @offer
   end
 
+  def edit
+    @offer = Offer.find(params[:id])
+    authorize @offer
+  end
+
+  def update
+    @offer = Offer.find(params[:id])
+    authorize @offer
+    @offer.update(offer_params)
+    redirect_to offer_path(@offer)
+  end
+
   private
 
   def offer_params
