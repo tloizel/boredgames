@@ -42,7 +42,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     authorize @offer
     @offer.destroy
-    redirect_to offer_path(@offer)
+    redirect_to offers_path
   end
   
   private
