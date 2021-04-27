@@ -10,7 +10,7 @@
 <p><%= @offer.location %></p>
 <p><%= @offer.delivery_type %></p>
 <p><%= @offer.language %></p>
-
-
-
+<% @offer.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
+<% end %>
 
