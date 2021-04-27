@@ -1,8 +1,10 @@
-<h2>HERE THE SHOW LIKE SHOW MUST GO ON !</h2>
+<h2>HERE THE SHOW!</h2>
 
 
-
-<h3><%= @offer.game_name %></h3>
+<% @offer.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
+<% end %>
+<h2><%= @offer.game_name %></h2>
 <p><%= @offer.description %></p>
 <p><%= @offer.game_condition %></p>
 <p><%= @offer.price %></p>
@@ -10,7 +12,4 @@
 <p><%= @offer.location %></p>
 <p><%= @offer.delivery_type %></p>
 <p><%= @offer.language %></p>
-<% @offer.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
-<% end %>
 
