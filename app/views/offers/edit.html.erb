@@ -1,0 +1,12 @@
+<h2>Edit you ad</h2>
+<%= simple_form_for @offer do |f| %>
+  <%= f.input :game_name %>
+  <%= f.input :description %>
+  <%= f.input :game_condition, collection: [ "As new", "Good condition", "Used", "Poor"] %>
+  <%= f.input :price %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :location %>
+  <%= f.input :delivery_type, as: :check_boxes, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { multiple: true } %>
+  <%= f.input :language %>
+  <%= f.button :submit %>
+<% end %>
