@@ -13,3 +13,12 @@
 <p><%= @offer.delivery_type %></p>
 <p><%= @offer.language %></p>
 
+<% if policy(@offer).edit? %>
+  <div><%= link_to "Edit ?", edit_offer_path, class: "btn btn-primary"%></div>
+<% end %>
+<% if policy(@offer).edit? %>
+  <div><%= link_to "Delete #{@offer.game_name}",
+            offer_path(@offer),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></div>
+<% end %>

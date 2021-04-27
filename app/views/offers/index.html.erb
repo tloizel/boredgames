@@ -21,7 +21,9 @@
         </div>
       </div>
       <% end %>
+      <% if policy(Offer).create? %>
+        <div><%= link_to "New offer", new_offer_path, class: "btn btn-primary"%></div>
+      <% end %>
     </div>
   </div>
 </div>
-
