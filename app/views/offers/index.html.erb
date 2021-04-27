@@ -10,7 +10,7 @@
           <div class="">
             <div class="d-flex mb-2 align-items-center justify-content-between">
               <span class="badge badge-primary"><%= offer.game_condition %></span>
-              <span class="card-text"><%= offer.price.round(2) %> €</span>
+              <span class="card-text"><%= offer.price %> €</span>
             </div>
             <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
           </div>
