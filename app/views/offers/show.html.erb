@@ -1,10 +1,11 @@
-<h1>HERE THE SHOW!</h1>
+<h2>HERE THE SHOW!</h2>
 
 
 <% @offer.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
 <% end %>
 <h2><%= @offer.game_name %></h2>
+<h3><%= @offer.game_name %></h3>
 <p><%= @offer.description %></p>
 <p><%= @offer.game_condition %></p>
 <p><%= @offer.price %></p>
