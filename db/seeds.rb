@@ -52,7 +52,7 @@ p 'Wingspan created!'
 
 p 'All offers have been created!'
 
-wingspan_transaction = Transaction.create!( { offer_id: 4, user_id: 1, rating: 2, chosen_delivery: 'In-person'} )
+wingspan_transaction = Transaction.create!( { offer_id: Offer.first.id, user_id: fabien.id, rating: 2, chosen_delivery: 'In-person'} )
 
 p 'Transactions created!'
 
