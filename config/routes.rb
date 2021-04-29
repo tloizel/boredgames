@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'offers#index'
 
   resources :offers, only:[:new, :create, :show, :index, :edit, :update, :destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'dashboard', to: 'offers#dashboard', as: :dashboard
 end
