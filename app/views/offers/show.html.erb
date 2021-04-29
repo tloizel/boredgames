@@ -1,24 +1,24 @@
-<h2>HERE THE SHOW!</h2>
+<div class="container">
+  <h2><%= @offer.game_name %></h2>
+  <% @offer.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
+  <% end %>
+  <p><%= @offer.description %></p>
+  <p><%= @offer.game_condition %></p>
+  <p><%= @offer.price %></p>
+  <p><%= @offer.description %></p>
+  <p><%= @offer.location %></p>
+  <p><%= @offer.delivery_type %></p>
+  <p><%= @offer.language %></p>
 
-
-<% @offer.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
-<% end %>
-<h2><%= @offer.game_name %></h2>
-<p><%= @offer.description %></p>
-<p><%= @offer.game_condition %></p>
-<p><%= @offer.price %></p>
-<p><%= @offer.description %></p>
-<p><%= @offer.location %></p>
-<p><%= @offer.delivery_type %></p>
-<p><%= @offer.language %></p>
-
-<% if policy(@offer).edit? %>
-  <div><%= link_to "Edit ?", edit_offer_path, class: "btn btn-primary"%></div>
-<% end %>
-<% if policy(@offer).edit? %>
-  <div><%= link_to "Delete #{@offer.game_name}",
-            offer_path(@offer),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></div>
-<% end %>
+  <% if policy(@offer).edit? %>
+    <div><%= link_to "Edit", edit_offer_path, class: "btn btn-primary"%></div>
+  <% end %>
+  <% if policy(@offer).edit? %>
+    <div><%= link_to "Delete",
+              offer_path(@offer),
+              class: "btn btn-danger my-3",
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></div>
+  <% end %>
+</div>
