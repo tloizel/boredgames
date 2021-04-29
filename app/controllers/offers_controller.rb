@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:search][:query].present?
+    if params[:search].present?
       @offers = policy_scope(Offer).where("game_name ILIKE ?", "%#{params[:search][:query]}%")
     else
       @offers = policy_scope(Offer).order(created_at: :desc)
