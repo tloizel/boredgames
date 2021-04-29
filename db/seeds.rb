@@ -29,21 +29,21 @@ sevenWonders.photos.attach([sevenWonders_first, sevenWonders_second])
 
 p 'Seven Wonders created!'
 
-monopoly = Offer.create!( {user_id: david.id, game_name: 'Monopoly', description: 'I hate this game and want to sell it', price: 5,  game_condition: 'Good condition', location: 'Lille', delivery_type: 'In-person', language: 'French', active: true} )
+monopoly = Offer.create!( {user_id: david.id, game_name: 'Monopoly', description: 'I hate this game and want to sell it', price: 5,  game_condition: 'Good condition', location: 'Lille', delivery_type: 'In person', language: 'French', active: true} )
 monopoly_first = {io: File.open('Seed_images/monopoly_1.jpg'), filename: 'monopoly_first_photo'}
 monopoly_second = {io: File.open('Seed_images/monopoly_2.jpg'), filename: 'monopoly_second_photo'}
 monopoly.photos.attach([monopoly_first, monopoly_second])
 
 p 'Monopoly created!'
 
-scythe = Offer.create!( {user_id: thomas.id, game_name: 'Scythe', description: "don't understand this game", price: 35, game_condition: 'Poor', location: 'London', delivery_type: 'In-person', language: 'English', active: true} )
+scythe = Offer.create!( {user_id: thomas.id, game_name: 'Scythe', description: "don't understand this game", price: 35, game_condition: 'Poor', location: 'London', delivery_type: 'In person', language: 'English', active: true} )
 scythe_first = {io: File.open('Seed_images/scythe_1.jpg'), filename: 'scythe_first_photo'}
 scythe_second = {io: File.open('Seed_images/Scythe_2.jpg'), filename: 'scythe_second_photo'}
 scythe.photos.attach([scythe_first, scythe_second])
 
 p 'Scythe created!'
 
-wingspan = Offer.create!( {user_id: fabien.id, game_name: 'Wingspan', description: "beautiful game but I don't like birds", price: 40, game_condition: 'Used', location: 'London', delivery_type: ['Colissimo', 'In-person'], language: 'English', active: false} )
+wingspan = Offer.create!( {user_id: fabien.id, game_name: 'Wingspan', description: "beautiful game but I don't like birds", price: 40, game_condition: 'Used', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: false} )
 wingspan_first = {io: File.open('Seed_images/wingspan_1.jpg'), filename: 'wingspan_first_photo'}
 wingspan_second = {io: File.open('Seed_images/wingspan_2.jpg'), filename: 'wingspan_second_photo'}
 wingspan.photos.attach([wingspan_first, wingspan_second])
@@ -52,7 +52,7 @@ p 'Wingspan created!'
 
 p 'All offers have been created!'
 
-wingspan_transaction = Transaction.create!( { offer_id: Offer.first.id, user_id: fabien.id, rating: 2, chosen_delivery: 'In-person'} )
+wingspan_transaction = Transaction.create!( { offer_id: Offer.first.id, user_id: fabien.id, rating: 2, chosen_delivery: "Colissimo"} )
 
 p 'Transactions created!'
 
