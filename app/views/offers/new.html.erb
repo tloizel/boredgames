@@ -7,7 +7,7 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :location %>
   <%= f.input :delivery_type, as: :check_boxes, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { multiple: true } %>
-  <%= f.input :language %>
+  <%= f.input :language, as: :select, collection: ["French", "English", "Mandarin Chinese", "Hindi", "Spanish", "Standard Arabic", "Russian", "Portuguese","German", "Japanese", "Italian"] %>
   <%= f.button :submit %>
 <% end %>
 <div><%= link_to "Cancel", offers_path, class: "btn btn-primary"%></div>
