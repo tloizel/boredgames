@@ -24,5 +24,4 @@ class OfferPolicy < ApplicationPolicy
   def dashboard?
     return true
   end
-
 end
