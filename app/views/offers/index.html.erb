@@ -1,12 +1,5 @@
-<div class="container">
-  <%= simple_form_for :index, url: offers_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-      </button>
-    </div>
-  <% end %>
+<%= render 'shared/banner' %>
+<div class="container pt-3">
   <% if policy(Offer).create? %>
         <div><%= link_to "New offer", new_offer_path, class: "btn btn-primary"%></div>
   <% end %>
@@ -19,12 +12,19 @@
         <% else %>
           <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
         <% end %>
-        <div class="card-body d-flex flex-wrap align-content-end">
+        <div class="card-body pb-0 d-flex flex-wrap align-content-end">
           <h5 class="card-title"><%= offer.game_name %></h5>
-          <p class="card-text"><%= offer.description %></p>
           <div>
-            <p class="badge badge-primary"><%= offer.game_condition %></p>
-            <p class="card-text"><%= offer.price %> €</p>
+            <% if offer.game_condition == "As new" %>
+              <p class="badge badge-success"><%= offer.game_condition %></p>
+            <% elsif offer.game_condition == "Good condition" %>
+              <p class="badge badge-primary"><%= offer.game_condition %></p>
+            <% elsif offer.game_condition == "Used" %>
+              <p class="badge badge-warning"><%= offer.game_condition %></p>
+            <% else %>
+              <p class="badge badge-danger"><%= offer.game_condition %></p>
+            <% end %>
+            <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
             <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
           </div>
         </div>
