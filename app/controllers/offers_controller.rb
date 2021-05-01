@@ -38,6 +38,10 @@ class OffersController < ApplicationController
     @delivery_options = @offer.delivery_type.gsub(/[\"\\\[\]]/, '').split(',').reject(&:blank?).map(&:strip)
     @transaction = Transaction.new
     authorize @offer
+    @marker = {
+      lat: @offer.latitude,
+      lng: @offer.longitude
+      }
   end
 
   def edit
