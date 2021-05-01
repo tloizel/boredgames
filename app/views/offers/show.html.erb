@@ -11,6 +11,12 @@
   <p><%= @offer.delivery_type %></p>
   <p><%= @offer.language %></p>
 
+  <div id="map"
+     style="width: 400px; height: 400px;"
+     data-marker="<%= @marker.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
   <% if policy(@offer).edit? %>
     <div><%= link_to "Edit", edit_offer_path, class: "btn btn-primary"%></div>
   <% end %>

@@ -37,6 +37,10 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @transaction = Transaction.new
     authorize @offer
+    @marker = {
+      lat: @offer.latitude,
+      lng: @offer.longitude
+      }
   end
 
   def edit

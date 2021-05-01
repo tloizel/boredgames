@@ -8,5 +8,7 @@ class Offer < ApplicationRecord
   validates :game_name, presence: { message: " - Please provide the name of the game" }
   validates :description, presence: { message: " - Please describe the game" }
   validates :price, presence: { message: " - Please state how much you want for this game" }
-  validates :location, presence: { message: " - Please state where you are located (country, region...)" }
+  # validates :location, presence: { message: " - Please state where you are located (country, region...)" }
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
