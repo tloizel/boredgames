@@ -26,7 +26,6 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     authorize @offer
-    raise
     if @offer.save
       redirect_to offer_path(@offer)
     else
