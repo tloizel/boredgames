@@ -30,7 +30,7 @@
       boolean: :inline_boolean
     } do |f| %>
 
-    <%= f.input :chosen_delivery, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { class: "mb-2 mr-sm-2" } %>
+    <%= f.input :chosen_delivery, collection: @delivery_options , input_html: { class: "mb-2 mr-sm-2" } %>
 
     <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
   <% end %>

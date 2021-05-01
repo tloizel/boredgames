@@ -26,6 +26,7 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     authorize @offer
+    raise
     if @offer.save
       redirect_to offer_path(@offer)
     else
@@ -35,6 +36,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @delivery_options = @offer.delivery_type.gsub(/[\"\\\[\]]/, '').split(',').reject(&:blank?).map(&:strip)
     @transaction = Transaction.new
     authorize @offer
   end
