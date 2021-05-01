@@ -2,6 +2,7 @@ class Offer < ApplicationRecord
   belongs_to :user
   has_many :transactions
   has_many_attached :photos
+
   validates :game_condition, inclusion: { in: ["As new", "Good condition", "Used", "Poor"] }, presence: true
   validates :delivery_type, presence: true
   validates :language, inclusion: { in: ["English", "Mandarin Chinese", "Hindi", "Spanish", "Standard Arabic", "French", "Russian", "Portuguese","German", "Japanese", "Italian"]}, presence: true
