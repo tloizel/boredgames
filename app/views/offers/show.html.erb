@@ -1,54 +1,59 @@
 <div class="container pt-3">
-  <h2><%= @offer.game_name %></h2>
-  <% @offer.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
-  <% end %>
-
-<div class="description_box">
-  <dl class="row">
-    <dt class="col-sm-3">Description</dt>
-    <dd class="col-sm-9"><%= @offer.description %></dd>
-
-    <dt class="col-sm-3">Condition</dt>
-    <dd class="col-sm-9">
-    <% if @offer.game_condition == "As new" %>
-      <p class="badge badge-success"><%= @offer.game_condition %></p>
-    <% elsif @offer.game_condition == "Good condition" %>
-      <p class="badge badge-primary"><%= @offer.game_condition %></p>
-    <% elsif @offer.game_condition == "Used" %>
-      <p class="badge badge-warning"><%= @offer.game_condition %></p>
-    <% else %>
-      <p class="badge badge-danger"><%= @offer.game_condition %></p>
+<div class="d-flex justify-content-between">
+  <div>
+    <h2><%= @offer.game_name %></h2>
+    <% @offer.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
     <% end %>
-    </dd>
 
-    <dt class="col-sm-3">Price</dt>
-    <dd class="col-sm-9"><%= number_to_currency(@offer.price, :unit => "€")%></dd>
+    <div class="description_box">
+      <dl class="row">
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9"><%= @offer.description %></dd>
 
-    <dt class="col-sm-3">Location</dt>
-    <dd class="col-sm-9"><%= @offer.location %></dd>
+        <dt class="col-sm-3">Condition</dt>
+        <dd class="col-sm-9">
+        <% if @offer.game_condition == "As new" %>
+          <p class="badge badge-success"><%= @offer.game_condition %></p>
+        <% elsif @offer.game_condition == "Good condition" %>
+          <p class="badge badge-primary"><%= @offer.game_condition %></p>
+        <% elsif @offer.game_condition == "Used" %>
+          <p class="badge badge-warning"><%= @offer.game_condition %></p>
+        <% else %>
+          <p class="badge badge-danger"><%= @offer.game_condition %></p>
+        <% end %>
+        </dd>
 
-    <dt class="col-sm-3">Delivery options</dt>
-    <dd class="col-sm-9">
-      <% @delivery_options.each do |delivery| %>
-      <p class="badge badge-secondary"><%= delivery %></p>
-      <% end %>
-    </dd>
+        <dt class="col-sm-3">Price</dt>
+        <dd class="col-sm-9"><%= number_to_currency(@offer.price, :unit => "€")%></dd>
 
-    <dt class="col-sm-3">Language</dt>
-    <dd class="col-sm-9"><%= @offer.language %></dd>
-    
-    <dt class="col-sm-3">Seller</dt>
-    <dd class="col-sm-9"><%= @offer.user.name %></dd>
+        <dt class="col-sm-3">Location</dt>
+        <dd class="col-sm-9"><%= @offer.location %></dd>
 
-  </dl>
-</div>
+        <dt class="col-sm-3">Delivery options</dt>
+        <dd class="col-sm-9">
+          <% @delivery_options.each do |delivery| %>
+          <p class="badge badge-secondary"><%= delivery %></p>
+          <% end %>
+        </dd>
+
+        <dt class="col-sm-3">Language</dt>
+        <dd class="col-sm-9"><%= @offer.language %></dd>
+
+        <dt class="col-sm-3">Seller</dt>
+        <dd class="col-sm-9"><%= @offer.user.name %></dd>
+
+      </dl>
+    </div>
+  </div>
 
   <div id="map"
-     style="width: 400px; height: 400px;"
+     style="width: 100%; height: 490px;"
      data-marker="<%= @marker.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
+
 
   <% if policy(@offer).edit? %>
     <div><%= link_to "Edit", edit_offer_path, class: "btn btn-primary"%></div>
