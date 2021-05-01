@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb-3">
   <%= link_to offers_path, class: "navbar-brand" do %>
-    <%= image_tag "https://i.pinimg.com/originals/d9/3d/91/d93d91a57281e6e96dc86c97c5047b30.png" %>
+    <%= image_tag "BG_logo.png" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,13 +17,11 @@
         <li class="nav-item">
           <%= link_to "Sell game", new_offer_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Edit my profile",  edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "My Dashboard",  dashboard_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

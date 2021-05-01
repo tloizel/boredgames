@@ -10,7 +10,11 @@ class OffersController < ApplicationController
   end
 
   def index
-    @offers = policy_scope(Offer).order(created_at: :desc)
+    if params[:search].present?
+      @offers = policy_scope(Offer).where("game_name ILIKE ?", "%#{params[:search][:query]}%")
+    else
+      @offers = policy_scope(Offer).order(created_at: :desc)
+    end
   end
 
   def new
@@ -52,7 +56,7 @@ class OffersController < ApplicationController
     @offer.destroy
     redirect_to offers_path
   end
-  
+
   private
 
   def offer_params
