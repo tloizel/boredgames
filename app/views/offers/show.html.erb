@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pt-3">
   <h2><%= @offer.game_name %></h2>
   <% @offer.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
