@@ -1,8 +1,6 @@
 <%= render 'shared/banner' %>
 <div class="container pt-3">
-  <% if policy(Offer).create? %>
-        <div><%= link_to "New offer", new_offer_path, class: "btn btn-primary"%></div>
-  <% end %>
+  
   <div class="row justify-content-center flex-wrap">
     <div class="col-12 d-flex">
       <% @offers.each do |offer| %>
