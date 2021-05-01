@@ -6,11 +6,11 @@ class TransactionsController < ApplicationController
     @transaction.offer_id = params[:offer_id]
     @transaction.user_id = current_user.id
     authorize @transaction
-    authorize @offer
+
     if @transaction.save
       @offer.active = false
       @offer.save
-      redirect_to offer_path(@offer)
+      redirect_to dashboard_path
     else
       redirect_to offer_path(@offer)
     end

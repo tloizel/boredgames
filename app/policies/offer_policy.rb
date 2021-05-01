@@ -14,7 +14,7 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user || Transaction.where(offer_id: record.id).first.user_id == user 
+    record.user == user
   end
 
   def destroy?
@@ -24,4 +24,9 @@ class OfferPolicy < ApplicationPolicy
   def dashboard?
     return true
   end
+
+  def purchase?
+    return true if record.active && record.user != user
+  end
+
 end
