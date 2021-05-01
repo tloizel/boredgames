@@ -1,7 +1,7 @@
 <div class="container pt-3">
+<h2><%= @offer.game_name %></h2>
 <div class="d-flex justify-content-between">
   <div>
-    <h2><%= @offer.game_name %></h2>
     <% @offer.photos.each do |photo| %>
       <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill %>
     <% end %>
@@ -48,7 +48,7 @@
   </div>
 
   <div id="map"
-     style="width: 100%; height: 490px;"
+     style="width: 100%; height: 450px;"
      data-marker="<%= @marker.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
