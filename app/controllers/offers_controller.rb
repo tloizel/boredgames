@@ -1,6 +1,14 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  def dashboard
+    @my_offers = current_user.offers.where(active: true)
+    @my_sales = current_user.offers.where(active: false)
+    @my_transactions = current_user.transactions
+    authorize @my_offers
+    authorize @my_sales
+  end
+
   def index
     if params[:search].present?
       @offers = policy_scope(Offer).where("game_name ILIKE ?", "%#{params[:search][:query]}%")
@@ -53,6 +61,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:game_name, :description, :game_condition, :price, :location, :delivery_type, :language, photos: [])
+    params.require(:offer).permit(:game_name, :description, :game_condition, :price, :location, :language, delivery_type: [], photos: [])
   end
 end

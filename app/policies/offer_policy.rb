@@ -21,4 +21,7 @@ class OfferPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def dashboard?
+    return true
+  end
 end
