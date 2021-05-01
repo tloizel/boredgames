@@ -1,7 +1,7 @@
 class OfferPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where.not(active: false, user: user)
     end
   end
 
