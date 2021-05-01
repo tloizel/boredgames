@@ -6,7 +6,7 @@ class TransactionsController < ApplicationController
     @transaction.offer_id = params[:offer_id]
     @transaction.user_id = current_user.id
     authorize @transaction
-    authorize @offer
+
     if @transaction.save
       @offer.active = false
       @offer.save
