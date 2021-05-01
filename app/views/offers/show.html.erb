@@ -22,17 +22,18 @@
               data: { confirm: "Are you sure?" } %></div>
   <% end %>
 
+<% if policy(@offer).purchase? %>
+  <%= simple_form_for ([@offer, @transaction]),
+    wrapper: :inline_form,
+    html: { class: "form-inline" },
+    wrapper_mappings: {
+      boolean: :inline_boolean
+    } do |f| %>
 
-<%= simple_form_for ([@offer, @transaction]),
-  wrapper: :inline_form,
-  html: { class: "form-inline" },
-  wrapper_mappings: {
-    boolean: :inline_boolean
-  } do |f| %>
+    <%= f.input :chosen_delivery, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { class: "mb-2 mr-sm-2" } %>
 
-  <%= f.input :chosen_delivery, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { class: "mb-2 mr-sm-2" } %>
-
-  <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
+    <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
+  <% end %>
 <% end %>
 
 </div>

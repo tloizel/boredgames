@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
     if @transaction.save
       @offer.active = false
       @offer.save
-      redirect_to offer_path(@offer)
+      redirect_to dashboard_path
     else
       redirect_to offer_path(@offer)
     end

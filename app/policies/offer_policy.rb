@@ -24,4 +24,9 @@ class OfferPolicy < ApplicationPolicy
   def dashboard?
     return true
   end
+
+  def purchase?
+    return true if record.active && record.user != user
+  end
+
 end
