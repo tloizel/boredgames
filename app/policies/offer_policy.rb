@@ -14,7 +14,7 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == user || Transaction.where(offer_id: record.id).first.user_id == user 
   end
 
   def destroy?
