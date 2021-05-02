@@ -13,6 +13,9 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_pack_tag 'application' %>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content= <%= ENV["GOOGLE_CLIENT_ID"] %> >
   </head>
 
   <body>
