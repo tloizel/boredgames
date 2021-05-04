@@ -1,0 +1,10 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+        <div class="google-btn rounded pill border border-danger px-3 py-2 my-3">
+           <i class="fab fa-google"></i>
+           <span class="ml-1">Sign in with Google</span>
+        </div>
+    <% end %>
+  <% end %>
+<% end %>
