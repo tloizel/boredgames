@@ -14,13 +14,13 @@
         <dt class="col-sm-3">Condition</dt>
         <dd class="col-sm-9">
         <% if @offer.game_condition == "As new" %>
-          <p class="badge badge-success"><%= @offer.game_condition %></p>
+          <p class="badge badge-success mb-0"><%= @offer.game_condition %></p>
         <% elsif @offer.game_condition == "Good condition" %>
-          <p class="badge badge-primary"><%= @offer.game_condition %></p>
+          <p class="badge badge-primary mb-0"><%= @offer.game_condition %></p>
         <% elsif @offer.game_condition == "Used" %>
-          <p class="badge badge-warning"><%= @offer.game_condition %></p>
+          <p class="badge badge-warning mb-0"><%= @offer.game_condition %></p>
         <% else %>
-          <p class="badge badge-danger"><%= @offer.game_condition %></p>
+          <p class="badge badge-danger mb-0"><%= @offer.game_condition %></p>
         <% end %>
         </dd>
 
@@ -33,7 +33,7 @@
         <dt class="col-sm-3">Delivery options</dt>
         <dd class="col-sm-9">
           <% @delivery_options.each do |delivery| %>
-          <p class="badge badge-secondary"><%= delivery %></p>
+          <p class="badge badge-secondary mb-0"><%= delivery %></p>
           <% end %>
         </dd>
 
@@ -42,13 +42,16 @@
 
         <dt class="col-sm-3">Seller</dt>
         <dd class="col-sm-9"><%= @offer.user.name %></dd>
-
+        <% if @offer.transactions.first && @offer.transactions.first.user != current_user %>
+        <dt class="col-sm-3">Buyer</dt>
+        <dd class="col-sm-9"><%= @offer.transactions.first.user.email %></dd>
+        <% end %>
       </dl>
     </div>
   </div>
 
   <div id="map"
-     style="width: 100%; height: 450px;"
+     style="width: 100%; height: 350px;"
      data-marker="<%= @marker.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
@@ -74,7 +77,7 @@
       boolean: :inline_boolean
     } do |f| %>
 
-    <%= f.input :chosen_delivery, collection: @delivery_options , input_html: { class: "mb-2 mr-sm-2" } %>
+    <%= f.input :chosen_delivery, collection: @delivery_options, prompt: "Select delivery", input_html: { class: "mb-2 mr-sm-2", placeholder: "hey" } %>
 
     <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
   <% end %>

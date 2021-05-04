@@ -1,93 +1,138 @@
 <div class="container pt-3">
   <h2>Dashboard</h2>
-  <h3>My ads (<%= @my_offers.count %>)</h3>
-  <div class="row justify-content-center flex-wrap">
-    <div class="col-12 d-flex">
-      <% @my_offers.each do |offer| %>
-      <div class="card m-3 p-3" style="width: 200px;">
-        <% if offer.photos.first.present? %>
-          <%= cl_image_tag offer.photos.first.key %>
-        <% else %>
-          <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
-        <% end %>
-        <div class="card-body d-flex flex-wrap align-content-end">
-          <h5 class="card-title"><%= offer.game_name %></h5>
-          <div>
-            <% if offer.game_condition == "As new" %>
-              <p class="badge badge-success"><%= offer.game_condition %></p>
-            <% elsif offer.game_condition == "Good condition" %>
-              <p class="badge badge-primary"><%= offer.game_condition %></p>
-            <% elsif offer.game_condition == "Used" %>
-              <p class="badge badge-warning"><%= offer.game_condition %></p>
-            <% else %>
-              <p class="badge badge-danger"><%= offer.game_condition %></p>
-            <% end %>
-            <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
-            <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
-          </div>
-        </div>
+
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            My ads (<%= @my_offers.count %>)
+          </button>
+        </h5>
       </div>
-      <% end %>
-    </div>
-  </div>
-  <h3>My sold games (<%= @my_sales.count %>)</h3>
-  <div class="row justify-content-center flex-wrap">
-    <div class="col-12 d-flex">
-      <% @my_sales.each do |offer| %>
-      <div class="card m-3 p-3" style="width: 200px;">
-        <% if offer.photos.first.present? %>
-          <%= cl_image_tag offer.photos.first.key %>
-        <% else %>
-          <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
-        <% end %>
-        <div class="card-body d-flex flex-wrap align-content-end">
-          <h5 class="card-title"><%= offer.game_name %></h5>
-          <div>
-            <% if offer.game_condition == "As new" %>
-                <p class="badge badge-success"><%= offer.game_condition %></p>
-              <% elsif offer.game_condition == "Good condition" %>
-                <p class="badge badge-primary"><%= offer.game_condition %></p>
-              <% elsif offer.game_condition == "Used" %>
-                <p class="badge badge-warning"><%= offer.game_condition %></p>
-              <% else %>
-                <p class="badge badge-danger"><%= offer.game_condition %></p>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row justify-content-center flex-wrap">
+            <div class="col-12 d-flex">
+              <% @my_offers.each do |offer| %>
+              <div class="card m-3 p-3" style="width: 200px;">
+                <% if offer.photos.first.present? %>
+                  <%= cl_image_tag offer.photos.first.key %>
+                <% else %>
+                  <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
+                <% end %>
+                <div class="card-body d-flex flex-wrap align-content-end justify-content-around">
+                  <h5 class="card-title"><%= offer.game_name %></h5>
+                  <div>
+                    <% if offer.game_condition == "As new" %>
+                      <p class="badge badge-success"><%= offer.game_condition %></p>
+                    <% elsif offer.game_condition == "Good condition" %>
+                      <p class="badge badge-primary"><%= offer.game_condition %></p>
+                    <% elsif offer.game_condition == "Used" %>
+                      <p class="badge badge-warning"><%= offer.game_condition %></p>
+                    <% else %>
+                      <p class="badge badge-danger"><%= offer.game_condition %></p>
+                    <% end %>
+                    <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
+                    <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
+                  </div>
+                </div>
+              </div>
               <% end %>
-            <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
-            <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
+            </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div>
-  </div>
-  <h3>My bought games (<%= @my_transactions.count %>)</h3>
-  <div class="row justify-content-center flex-wrap">
-    <div class="col-12 d-flex">
-      <% @my_transactions.each do |transaction| %>
-      <div class="card m-3 p-3" style="width: 200px;">
-        <% if transaction.offer.photos.first.present? %>
-          <%= cl_image_tag transaction.offer.photos.first.key %>
-        <% else %>
-          <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
-        <% end %>
-        <div class="card-body d-flex flex-wrap align-content-end">
-          <h5 class="card-title"><%= transaction.offer.game_name %></h5>
-          <div>
-            <% if transaction.offer.game_condition == "As new" %>
-                <p class="badge badge-success"><%= transaction.offer.game_condition %></p>
-              <% elsif transaction.offer.game_condition == "Good condition" %>
-                <p class="badge badge-primary"><%= transaction.offer.game_condition %></p>
-              <% elsif transaction.offer.game_condition == "Used" %>
-                <p class="badge badge-warning"><%= transaction.offer.game_condition %></p>
-              <% else %>
-                <p class="badge badge-danger"><%= transaction.offer.game_condition %></p>
+
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            My sold games (<%= @my_sales.count %>)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row justify-content-center flex-wrap">
+            <div class="col-12 d-flex">
+              <% @my_sales.each do |offer| %>
+              <div class="card m-3 p-3" style="width: 200px;">
+                <% if offer.photos.first.present? %>
+                  <%= cl_image_tag offer.photos.first.key %>
+                <% else %>
+                  <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
+                <% end %>
+                <div class="card-body d-flex flex-wrap align-content-end justify-content-around">
+                  <h5 class="card-title"><%= offer.game_name %></h5>
+                  <div>
+                    <% if offer.game_condition == "As new" %>
+                        <p class="badge badge-success"><%= offer.game_condition %></p>
+                      <% elsif offer.game_condition == "Good condition" %>
+                        <p class="badge badge-primary"><%= offer.game_condition %></p>
+                      <% elsif offer.game_condition == "Used" %>
+                        <p class="badge badge-warning"><%= offer.game_condition %></p>
+                      <% else %>
+                        <p class="badge badge-danger"><%= offer.game_condition %></p>
+                      <% end %>
+                    <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
+                    <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
+                  </div>
+                </div>
+              </div>
               <% end %>
-            <p class="card-text"><%= number_to_currency(transaction.offer.price, :unit => "€")%></p>
-            <%= link_to 'See offer', offer_path(transaction.offer), class: 'btn btn-primary' %>
+            </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div>
+
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            My bought games (<%= @my_transactions.count %>)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row justify-content-center flex-wrap">
+            <div class="col-12 d-flex">
+              <% @my_transactions.each do |transaction| %>
+              <div class="card m-3 p-3" style="width: 200px;">
+                <% if transaction.offer.photos.first.present? %>
+                  <%= cl_image_tag transaction.offer.photos.first.key %>
+                <% else %>
+                  <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
+                <% end %>
+                <div class="card-body d-flex flex-wrap align-content-end justify-content-around">
+                  <h5 class="card-title"><%= transaction.offer.game_name %></h5>
+                  <div>
+                    <% if transaction.offer.game_condition == "As new" %>
+                        <p class="badge badge-success"><%= transaction.offer.game_condition %></p>
+                      <% elsif transaction.offer.game_condition == "Good condition" %>
+                        <p class="badge badge-primary"><%= transaction.offer.game_condition %></p>
+                      <% elsif transaction.offer.game_condition == "Used" %>
+                        <p class="badge badge-warning"><%= transaction.offer.game_condition %></p>
+                      <% else %>
+                        <p class="badge badge-danger"><%= transaction.offer.game_condition %></p>
+                      <% end %>
+                    <p class="card-text"><%= number_to_currency(transaction.offer.price, :unit => "€")%></p>
+                    <%= link_to 'See offer', offer_path(transaction.offer), class: 'btn btn-primary' %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+
+
+
