@@ -1,7 +1,7 @@
 <%= render 'shared/banner' %>
 <div class="container pt-3">
-  <% if policy(Offer).create? %>
-        <div><%= link_to "New offer", new_offer_path, class: "btn btn-primary"%></div>
+  <% if @searched && @searched != "" %>
+  <h3><%= @offers.size %> results found for "<%= @searched %>"</h3>
   <% end %>
   <div class="row justify-content-center flex-wrap">
     <div class="col-12 d-flex">
@@ -12,7 +12,7 @@
         <% else %>
           <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
         <% end %>
-        <div class="card-body pb-0 d-flex flex-wrap align-content-end">
+        <div class="card-body pb-0 d-flex flex-wrap align-content-end justify-content-around">
           <h5 class="card-title"><%= offer.game_name %></h5>
           <div>
             <% if offer.game_condition == "As new" %>
