@@ -18,9 +18,9 @@
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
-    <div class="swiper-slide">
-      <div class="col-12 d-flex">
-        <% @offers.each do |offer| %>
+    <div class="col-12 d-flex">
+      <% @offers.each do |offer| %>
+      <div class="swiper-slide">
         <div class="card m-3 p-3" style="width: 200px;">
           <% if offer.photos.first.present? %>
             <%= cl_image_tag offer.photos.first.key %>
@@ -43,17 +43,9 @@
             </div>
           </div>
         </div>
-        <% end %>
       </div>
-    </div>
-
-    <div class="swiper-slide">
-      <%= @carroussel %>    
-    </div>
-    <div class="swiper-slide">
-      <%= @carrousel %>    
-    </div>
-  </div>
+        <% end %>
+    </div>      
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
 
@@ -62,5 +54,4 @@
   <div class="swiper-button-next"></div>
 
   <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
 </div>
