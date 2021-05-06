@@ -1,6 +1,6 @@
 class Offer < ApplicationRecord
   belongs_to :user
-  has_many :transactions
+  has_many :purchases
   has_many_attached :photos
 
   validates :game_condition, inclusion: { in: ["As new", "Good condition", "Used", "Poor"] }, presence: true

@@ -6,5 +6,5 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :offers
-  has_many :transactions
+  has_many :purchases
 end
