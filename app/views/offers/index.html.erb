@@ -10,8 +10,7 @@
   <% end %>
   
   <div class="row justify-content-center d-flex flex-wrap">
-    <div class="col-12 d-flex">
-      <% @offers.each do |offer| %>
+     <% @offers.each do |offer| %>
       <div class="card m-3 p-3" style="width: 200px;">
         <% if offer.photos.first.present? %>
           <%= cl_image_tag offer.photos.first.key %>
@@ -36,7 +35,6 @@
  
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
