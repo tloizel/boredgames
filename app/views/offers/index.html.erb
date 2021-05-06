@@ -9,7 +9,7 @@
   <i class="fas fa-arrow-<%= params[:sort_by_price] == "DESC" ? "up" : "down" %>"></i>
   <% end %>
   
-  <div class="row justify-content-center flex-wrap">
+  <div class="row justify-content-center d-flex flex-wrap">
     <div class="col-12 d-flex">
       <% @offers.each do |offer| %>
       <div class="card m-3 p-3" style="width: 200px;">
@@ -33,9 +33,10 @@
             <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
             <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
           </div>
+ 
         </div>
       </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
