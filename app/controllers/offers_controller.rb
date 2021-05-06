@@ -9,6 +9,12 @@ class OffersController < ApplicationController
     authorize @my_sales
   end
 
+  def filter
+    @offers = Offer.all
+    @filtered_offer_by_price = @offers.price.sort
+  end
+
+
   def index
     if params[:search].present?
       @offers = policy_scope(Offer).where("game_name ILIKE ?", "%#{params[:search][:query]}%")

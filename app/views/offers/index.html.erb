@@ -3,6 +3,9 @@
   <% if @searched && @searched != "" %>
   <h3><%= @offers.size %> results found for "<%= @searched %>"</h3>
   <% end %>
+
+  <%= link_to 'filter', offers_path, class: "btn btn-secondary btn-sm active" %>
+  
   <div class="row justify-content-center flex-wrap">
     <div class="col-12 d-flex">
       <% @offers.each do |offer| %>
