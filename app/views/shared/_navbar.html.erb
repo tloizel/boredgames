@@ -21,7 +21,7 @@
           <%= link_to "Sell game", new_offer_path, class: "btn btn-outline-primary mr-3" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://eu.ui-avatars.com/api/?name=#{current_user.name}&background=bc330d&color=FFFFFF", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Dashboard",  dashboard_path, class: "dropdown-item" %>
             <%= link_to "Edit my profile",  edit_user_registration_path, class: "dropdown-item" %>

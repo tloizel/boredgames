@@ -30,9 +30,39 @@ import { initStarRating } from '../plugins/init_star_rating';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+//remove google sign in hash
+var href = window.location.href;
+if (href[href.length - 1] === "#") {
+  if (typeof window.history.replaceState == "function") {
+    history.replaceState({}, "", href.slice(0, -1));
+  }
+}
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initMapbox();
   initAutocomplete();
   initStarRating();
+});
+
+
+// Swiper carrousel js
+
+const swiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
