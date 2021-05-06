@@ -22,7 +22,7 @@ thomas = User.create!( {name: 'Thomas', email: 'thomas@gmail.com', password: '12
 
 p 'Users created!'
 
-sevenWonders = Offer.create!( {user_id: fabien.id, game_name: '7 Wonders', description: 'great game', price: 20, game_condition: 'As new', location: 'Paris', delivery_type: 'Colissimo', language: 'French', active: true} )
+sevenWonders = Offer.create!( {user_id: fabien.id, game_name: '7 Wonders', description: 'great game', price: 20, game_condition: 'As new', location: 'Paris', delivery_type: ['Colissimo'], language: 'French', active: true} )
 sevenWonders_first = {io: File.open('Seed_images/7-wonders-Asmodee.jpg'), filename: '7_wonders_first_photo'}
 sevenWonders_second = {io: File.open('Seed_images/7-wonders-jeu-de-strategie.jpg'), filename: '7_wonders_second_photo'}
 sevenWonders.photos.attach([sevenWonders_first, sevenWonders_second])
@@ -69,12 +69,26 @@ ticket_first = {io: File.open('Seed_images/ticket1.jpg'), filename: 'carca_first
 ticket_second = {io: File.open('Seed_images/ticket2.jpeg'), filename: 'carca_second_photo'}
 ticket.photos.attach([ticket_first, ticket_second])
 
-p 'TicketToRide created!'
+p 'Dixit1 created!'
+
+dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 20, game_condition: 'Used', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
+dixit_first2 = {io: File.open('Seed_images/dixit2.jpg'), filename: 'dixit_first_photo'}
+dixit_second2 = {io: File.open('Seed_images/dixit5.jpeg'), filename: 'dixit_second_photo'}
+dixit.photos.attach([dixit_first2, dixit_second2])
+
+p 'Dixit2 created!'
 
 dorado = Offer.create!( {user_id: fabien.id, game_name: 'El Dorado', description: "Lovely deck-building game", price: 30, game_condition: 'Good condition', location: 'Paris', delivery_type: ['In person'], language: 'French', active: true} )
 dorado_first = {io: File.open('Seed_images/dorado1.jpg'), filename: 'dorado_first_photo'}
 dorado_second = {io: File.open('Seed_images/dorado2.jpeg'), filename: 'dorado_second_photo'}
 dorado.photos.attach([dorado_first, dorado_second])
+
+p 'TicketToRide created!'
+
+dixit = Offer.create!( {user_id: thomas.id, game_name: 'Dixit', description: "I know the cards off by heart, tell to sell", price: 10, game_condition: 'Poor', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+dixit_first1 = {io: File.open('Seed_images/dixit1.jpeg'), filename: 'dixit_first_photo'}
+dixit_second1 = {io: File.open('Seed_images/dixit4.jpeg'), filename: 'dixit_second_photo'}
+dixit.photos.attach([dixit_first1, dixit_second1])
 
 p 'Dorado created!'
 
@@ -84,20 +98,6 @@ ile_second = {io: File.open('Seed_images/ile2.jpeg'), filename: 'ile_second_phot
 ile.photos.attach([ile_first, ile_second])
 
 p 'Ile of Skye created!'
-
-dixit = Offer.create!( {user_id: thomas.id, game_name: 'Dixit', description: "I know the cards off by heart, tell to sell", price: 10, game_condition: 'Poor', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
-dixit_first1 = {io: File.open('Seed_images/dixit1.jpeg'), filename: 'dixit_first_photo'}
-dixit_second1 = {io: File.open('Seed_images/dixit4.jpeg'), filename: 'dixit_second_photo'}
-dixit.photos.attach([dixit_first1, dixit_second1])
-
-p 'Dixit1 created!'
-
-dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 20, game_condition: 'Used', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
-dixit_first2 = {io: File.open('Seed_images/dixit2.jpg'), filename: 'dixit_first_photo'}
-dixit_second2 = {io: File.open('Seed_images/dixit5.jpeg'), filename: 'dixit_second_photo'}
-dixit.photos.attach([dixit_first2, dixit_second2])
-
-p 'Dixit2 created!'
 
 dixit = Offer.create!( {user_id: david.id, game_name: 'Dixit', description: "Simple but fun game to play with up to 5 players", price: 20, game_condition: 'Good condition', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
 dixit_first3 = {io: File.open('Seed_images/dixit3.jpeg'), filename: 'dixit_first_photo'}

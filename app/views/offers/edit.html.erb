@@ -7,7 +7,7 @@
     <%= f.input :price %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :location %>
-    <%= f.input :delivery_type, as: :check_boxes, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { multiple: true } %>
+    <%= f.input :delivery_type, as: :check_boxes, collection: Offer::DELIVERY_TYPES %>
     <%= f.input :language %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>

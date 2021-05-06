@@ -1,4 +1,6 @@
 class Offer < ApplicationRecord
+  DELIVERY_TYPES = ["In person", "Colissimo", "Point Relay"]
+
   belongs_to :user
   has_many :purchases
   has_many_attached :photos
