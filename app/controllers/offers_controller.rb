@@ -4,7 +4,7 @@ class OffersController < ApplicationController
   def dashboard
     @my_offers = current_user.offers.where(active: true)
     @my_sales = current_user.offers.where(active: false)
-    @my_transactions = current_user.transactions
+    @my_purchases = current_user.purchases
     authorize @my_offers
     authorize @my_sales
   end
@@ -37,7 +37,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @delivery_options = @offer.delivery_type.gsub(/[\"\\\[\]]/, '').split(',').reject(&:blank?).map(&:strip)
-    @transaction = Transaction.new
+    @purchase = Purchase.new
     authorize @offer
     @marker = {
       lat: @offer.latitude,
