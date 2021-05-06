@@ -92,7 +92,7 @@
       <div class="card-header" id="headingThree">
         <h5 class="mb-0">
           <button class="btn btn-primary btn-lg btn-block collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            My bought games (<%= @my_transactions.count %>)
+            My bought games (<%= @my_purchases.count %>)
           </button>
         </h5>
       </div>
@@ -122,7 +122,7 @@
                     <p class="card-text"><%= number_to_currency(purchase.offer.price, :unit => "€")%></p>
                     <%= link_to 'See offer', offer_path(purchase.offer), class: 'btn btn-primary' %>
 
-                  <% if purchase.reviews.any? %>  
+                  <% if purchase.reviews.any? %>
                     <%= purchase.reviews.first.content %>
                     <%= purchase.reviews.first.rating %>
                   <% else %>
