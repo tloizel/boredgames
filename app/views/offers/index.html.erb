@@ -4,7 +4,10 @@
   <h3><%= @offers.size %> results found for "<%= @searched %>"</h3>
   <% end %>
 
-  <%= link_to 'filter', offers_path(sort:'asc'), class: "btn btn-secondary btn-sm active" %>
+  <%= link_to offers_path(sort_by_price: params[:sort_by_price] == "ASC" ? "DESC" : "ASC"), class: "btn btn-secondary btn-sm active" do %>
+  Filter by price
+  <i class="fas fa-arrow-<%= params[:sort_by_price] == "DESC" ? "up" : "down" %>"></i>
+  <% end %>
   
   <div class="row justify-content-center flex-wrap">
     <div class="col-12 d-flex">
