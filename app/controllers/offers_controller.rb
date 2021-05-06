@@ -47,6 +47,7 @@ class OffersController < ApplicationController
 
   def edit
     @offer = Offer.find(params[:id])
+    raise
     authorize @offer
   end
 
