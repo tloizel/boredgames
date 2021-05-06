@@ -38,13 +38,12 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
-    @delivery_options = @offer.delivery_type.gsub(/[\"\\\[\]]/, '').split(',').reject(&:blank?).map(&:strip)
     @purchase = Purchase.new
     authorize @offer
     @marker = {
       lat: @offer.latitude,
       lng: @offer.longitude
-      }
+    }
   end
 
   def edit
