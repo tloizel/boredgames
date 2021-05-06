@@ -10,11 +10,13 @@ class OffersController < ApplicationController
   end
 
   def index
+    @offers = policy_scope(Offer)#.order(created_at: :desc)
     if params[:search].present?
-      @offers = policy_scope(Offer).where("game_name ILIKE ?", "%#{params[:search][:query]}%")
+      @offers = @offers.where("game_name ILIKE ?", "%#{params[:search][:query]}%")
       @searched = params[:search][:query]
-    else
-      @offers = policy_scope(Offer).order(created_at: :desc)
+    end
+    if params[:sort_by_price].present?
+      @offers = @offers.order(price: params[:sort_by_price])
     end
   end
 

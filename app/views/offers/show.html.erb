@@ -44,7 +44,7 @@
         <dd class="col-sm-9"><%= @offer.user.name %></dd>
         <% if @offer.purchases.first && @offer.purchases.first.user != current_user %>
         <dt class="col-sm-3">Buyer</dt>
-        <dd class="col-sm-9"><%= @offer.purchase.first.user.email %></dd>
+        <dd class="col-sm-9"><%= @offer.purchases.first.user.email %></dd>
         <% end %>
       </dl>
     </div>

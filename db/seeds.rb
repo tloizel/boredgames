@@ -69,13 +69,6 @@ ticket_first = {io: File.open('Seed_images/ticket1.jpg'), filename: 'carca_first
 ticket_second = {io: File.open('Seed_images/ticket2.jpeg'), filename: 'carca_second_photo'}
 ticket.photos.attach([ticket_first, ticket_second])
 
-p 'TicketToRide created!'
-
-dixit = Offer.create!( {user_id: thomas.id, game_name: 'Dixit', description: "I know the cards off by heart, tell to sell", price: 10, game_condition: 'Poor', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
-dixit_first1 = {io: File.open('Seed_images/dixit1.jpeg'), filename: 'dixit_first_photo'}
-dixit_second1 = {io: File.open('Seed_images/dixit4.jpeg'), filename: 'dixit_second_photo'}
-dixit.photos.attach([dixit_first1, dixit_second1])
-
 p 'Dixit1 created!'
 
 dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 20, game_condition: 'Used', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
@@ -89,6 +82,13 @@ dorado = Offer.create!( {user_id: fabien.id, game_name: 'El Dorado', description
 dorado_first = {io: File.open('Seed_images/dorado1.jpg'), filename: 'dorado_first_photo'}
 dorado_second = {io: File.open('Seed_images/dorado2.jpeg'), filename: 'dorado_second_photo'}
 dorado.photos.attach([dorado_first, dorado_second])
+
+p 'TicketToRide created!'
+
+dixit = Offer.create!( {user_id: thomas.id, game_name: 'Dixit', description: "I know the cards off by heart, tell to sell", price: 10, game_condition: 'Poor', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+dixit_first1 = {io: File.open('Seed_images/dixit1.jpeg'), filename: 'dixit_first_photo'}
+dixit_second1 = {io: File.open('Seed_images/dixit4.jpeg'), filename: 'dixit_second_photo'}
+dixit.photos.attach([dixit_first1, dixit_second1])
 
 p 'Dorado created!'
 

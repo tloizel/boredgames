@@ -121,10 +121,16 @@
                       <% end %>
                     <p class="card-text"><%= number_to_currency(purchase.offer.price, :unit => "€")%></p>
                     <%= link_to 'See offer', offer_path(purchase.offer), class: 'btn btn-primary' %>
-
                   <% if purchase.reviews.any? %>
+                    <h6>Your review</h6>
                     <%= purchase.reviews.first.content %>
-                    <%= purchase.reviews.first.rating %>
+                    <% rating = purchase.reviews.first.rating %>
+                    <% rating.times do  %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                    <% (5-rating).times do  %>
+                      <i class="far fa-star"></i>
+                    <% end %>
                   <% else %>
                     <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer_id, purchase), class: 'btn btn-primary' %>
                   <% end %>
