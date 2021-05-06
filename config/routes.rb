@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :offers, only:[:new, :create, :show, :index, :edit, :update, :destroy] do
-    resources :transactions, only:[:create]
+    resources :purchases, only:[:create] do
+      resources :reviews, only:[:new, :create]
+    end
   end
-  get 'dashboard', to: 'offers#dashboard', as: :dashboard
-
+    get 'dashboard', to: 'offers#dashboard', as: :dashboard
 end
