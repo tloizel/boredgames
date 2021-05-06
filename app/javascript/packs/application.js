@@ -30,6 +30,14 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+//remove google sign in hash
+var href = window.location.href;
+if (href[href.length - 1] === "#") {
+  if (typeof window.history.replaceState == "function") {
+    history.replaceState({}, "", href.slice(0, -1));
+  }
+}
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initMapbox();
