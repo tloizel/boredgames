@@ -42,7 +42,7 @@ class OffersController < ApplicationController
     @marker = {
       lat: @offer.latitude,
       lng: @offer.longitude
-      }
+    }
   end
 
   def edit
