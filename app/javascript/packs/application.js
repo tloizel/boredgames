@@ -66,3 +66,6 @@ const swiper = new Swiper('.swiper-container', {
     prevEl: '.swiper-button-prev',
   },
 });
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
