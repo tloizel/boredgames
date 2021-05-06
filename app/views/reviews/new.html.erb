@@ -1,0 +1,9 @@
+<div class="container pt-3">
+  <h2>New review for your purchase of <%= @purchase.offer.game_name %> </h2>
+  <%= simple_form_for ([@offer, @purchase, @review]) do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>    
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+  <div><%= link_to "Cancel", dashboard_path(@offer), class: "btn btn-link"%></div>
+</div>

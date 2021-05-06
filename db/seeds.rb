@@ -8,7 +8,7 @@
 
 p 'Cleaning seed...'
 
-Transaction.all.destroy_all
+Purchase.all.destroy_all
 Offer.all.destroy_all
 User.all.destroy_all
 
@@ -52,8 +52,8 @@ p 'Wingspan created!'
 
 p 'All offers have been created!'
 
-wingspan_transaction = Transaction.create!( { offer_id: Offer.first.id, user_id: fabien.id, rating: 2, chosen_delivery: "Colissimo"} )
+wingspan_purchase = Purchase.create!( { offer_id: Offer.first.id, user_id: fabien.id, chosen_delivery: "Colissimo"} )
 
-p 'Transactions created!'
+p 'Purchases created!'
 
 p 'seed db done :)'
