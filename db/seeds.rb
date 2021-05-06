@@ -22,7 +22,7 @@ thomas = User.create!( {name: 'Thomas', email: 'thomas@gmail.com', password: '12
 
 p 'Users created!'
 
-sevenWonders = Offer.create!( {user_id: fabien.id, game_name: '7 Wonders', description: 'great game', price: 20, game_condition: 'As new', location: 'Paris', delivery_type: 'Colissimo', language: 'French', active: true} )
+sevenWonders = Offer.create!( {user_id: fabien.id, game_name: '7 Wonders', description: 'great game', price: 20, game_condition: 'As new', location: 'Paris', delivery_type: ['Colissimo'], language: 'French', active: true} )
 sevenWonders_first = {io: File.open('Seed_images/7-wonders-Asmodee.jpg'), filename: '7_wonders_first_photo'}
 sevenWonders_second = {io: File.open('Seed_images/7-wonders-jeu-de-strategie.jpg'), filename: '7_wonders_second_photo'}
 sevenWonders.photos.attach([sevenWonders_first, sevenWonders_second])

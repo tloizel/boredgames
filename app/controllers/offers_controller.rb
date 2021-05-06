@@ -36,7 +36,6 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
-    @delivery_options = @offer.delivery_type.gsub(/[\"\\\[\]]/, '').split(',').reject(&:blank?).map(&:strip)
     @purchase = Purchase.new
     authorize @offer
     @marker = {
@@ -47,7 +46,6 @@ class OffersController < ApplicationController
 
   def edit
     @offer = Offer.find(params[:id])
-    raise
     authorize @offer
   end
 
