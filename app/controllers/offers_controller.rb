@@ -9,18 +9,14 @@ class OffersController < ApplicationController
     authorize @my_sales
   end
 
-  def filter
-    @offers = Offer.all
-    @filtered_offer_by_price = @offers.price.sort
-  end
-
-
   def index
+    @offers = policy_scope(Offer).order(created_at: :desc)
     if params[:search].present?
-      @offers = policy_scope(Offer).where("game_name ILIKE ?", "%#{params[:search][:query]}%")
+      @offers = @offers.where("game_name ILIKE ?", "%#{params[:search][:query]}%")
       @searched = params[:search][:query]
-    else
-      @offers = policy_scope(Offer).order(created_at: :desc)
+    end
+    if params[:sort].present?
+      @offers = @offers.sort(:asc)
     end
   end
 
