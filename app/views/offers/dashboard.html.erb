@@ -126,10 +126,10 @@
                     <%= purchase.reviews.first.content %>
                     <% rating = purchase.reviews.first.rating %>
                     <% rating.times do  %>
-                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star golden-stars"></i>
                     <% end %>
                     <% (5-rating).times do  %>
-                      <i class="far fa-star"></i>
+                      <i class="far fa-star golden-stars"></i>
                     <% end %>
                   <% else %>
                     <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer_id, purchase), class: 'btn btn-primary' %>
