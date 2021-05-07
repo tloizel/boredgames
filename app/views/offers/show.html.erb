@@ -41,7 +41,12 @@
         <dd class="col-sm-9"><%= @offer.language %></dd>
 
         <dt class="col-sm-3">Seller</dt>
-        <dd class="col-sm-9"><%= @offer.user.name %></dd>
+        <dd class="col-sm-9"><%= @offer.user.name %> - <%=@offer.user.average_rating%>
+        <% if @offer.user.average_rating.is_a? Float %>
+        <i class="fas fa-star golden-stars"></i>
+        <% else %>
+        <% end %>
+        </dd>
         <% if @offer.purchases.first && @offer.purchases.first.user != current_user %>
         <dt class="col-sm-3">Buyer</dt>
         <dd class="col-sm-9"><%= @offer.purchases.first.user.email %></dd>
