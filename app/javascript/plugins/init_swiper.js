@@ -1,7 +1,7 @@
 // Swiper carrousel js
 
 const initSwiper = () => {
-  const swiper = new Swiper('.swiper-container', {
+  const swiper = new Swiper('.swiper-container', 
     // Optional parameters
     direction: 'horizontal',
     loop: true,
