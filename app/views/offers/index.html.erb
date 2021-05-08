@@ -9,7 +9,7 @@
   <i class="fas fa-arrow-<%= params[:sort_by_price] == "DESC" ? "up" : "down" %>"></i>
   <% end %>
   
-  <div class="row justify-content-center d-flex flex-wrap">
+  <div class="row justify-content-left d-flex flex-wrap">
 
     <% @offers.each do |offer| %>
       
@@ -17,7 +17,7 @@
       
       <div class="offer-card">
 
-        <%= cl_image_tag offer.photos.first.key, :height=>200, :width=>200, :crop=>"fill" %>
+        <%= cl_image_tag offer.photos.first.key, :height=>197, :width=>197, :crop=>"fill" %>
         
         <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
 
