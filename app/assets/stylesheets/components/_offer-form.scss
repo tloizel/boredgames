@@ -2,3 +2,17 @@
 border-radius: 10px;
 border-width: 2px;
 }
+
+.offer-form > unrounded {
+border-radius: 0px;
+border-width: 0px;
+}
+
+.form-container {
+  width: 20em;
+  margin: 0 auto;
+}
+
+abbr[title] {
+  text-decoration: none;
+}

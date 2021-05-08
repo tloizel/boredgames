@@ -1,15 +1,17 @@
-<div class="container pt-3">
-  <h2>New game offer</h2>
-  <%= simple_form_for @offer, defaults: { input_html: { class: 'offer-form' } } do |f| %>
-    <%= f.input :game_name, placeholder: 'Game name', label: false %>
-    <%= f.input :description, placeholder: 'Description', label: false %>
-    <%= f.input :game_condition, collection: [ "As new", "Good condition", "Used", "Poor"], prompt: "Game condition", label: false %>
-    <%= f.input :price %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :location %>
-    <%= f.input :delivery_type, as: :check_boxes, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { multiple: true }, prompt: "Delivery type", label: false %>
-    <%= f.input :language, collection: ["French", "English", "Mandarin Chinese", "Hindi", "Spanish", "Standard Arabic", "Russian", "Portuguese","German", "Japanese", "Italian"], prompt: "Language", label: false%>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
-  <div><%= link_to "Cancel", offers_path, class: "btn btn-link"%></div>
+<div class="form-container pt-3">
+  <div>
+    <h2>New game offer</h2>
+    <%= simple_form_for @offer, defaults: { input_html: { class: 'offer-form' } } do |f| %>
+      <%= f.input :game_name, placeholder: 'Game name *', label: false %>
+      <%= f.input :description, placeholder: 'Description *', label: false %>
+      <%= f.input :game_condition, collection: [ "As new", "Good condition", "Used", "Poor"], prompt: "Game condition *", label: false %>
+      <%= f.input :price, placeholder: 'Price *', label: false %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'unrounded' } %>
+      <%= f.input :location, placeholder: 'Location *', label: false %>
+      <%= f.input :delivery_type, as: :check_boxes, collection: ["In person", "Colissimo", "Point Relay"] , input_html: { multiple: true }, prompt: "Delivery type *", label: false %>
+      <%= f.input :language, collection: ["French", "English", "Mandarin Chinese", "Hindi", "Spanish", "Standard Arabic", "Russian", "Portuguese","German", "Japanese", "Italian"], prompt: "Language *", label: false%>
+      <%= f.button :submit, class: "btn btn-primary mt-3" %>
+    <% end %>
+    <div><%= link_to "Cancel", offers_path, class: "btn btn-link"%></div>
+  </div>
 </div>

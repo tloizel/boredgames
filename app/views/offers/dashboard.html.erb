@@ -13,7 +13,7 @@
       <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
           <div class="row justify-content-center flex-wrap">
-            <div class="col-12 d-flex">
+            <div class="col-12 d-flex flex-wrap">
               <% @my_offers.each do |offer| %>
               <div class="card m-3 p-3" style="width: 200px;">
                 <% if offer.photos.first.present? %>
@@ -56,7 +56,7 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="card-body">
           <div class="row justify-content-center flex-wrap">
-            <div class="col-12 d-flex">
+            <div class="col-12 d-flex flex-wrap">
               <% @my_sales.each do |offer| %>
               <div class="card m-3 p-3" style="width: 200px;">
                 <% if offer.photos.first.present? %>
@@ -99,7 +99,7 @@
       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
         <div class="card-body">
           <div class="row justify-content-center flex-wrap">
-            <div class="col-12 d-flex">
+            <div class="col-12 d-flex flex-wrap">
               <% @my_purchases.each do |purchase| %>
               <div class="card m-3 p-3" style="width: 200px;">
                 <% if purchase.offer.photos.first.present? %>
