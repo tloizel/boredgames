@@ -1,0 +1,33 @@
+
+.review-block {
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 20px #d9d9d9,
+                inset -5px -5px 20px #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 177px;
+}
+
+.add-review-button {
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow:  5px 5px 20px #d9d9d9,
+             -5px -5px 20px #ffffff;
+  padding: 10px;
+  max-width: 177px;
+  color: black;
+  margin-bottom: 8px;
+}
+
+.add-review-button > a {
+  color: black;
+}
+
+.add-review-button:hover {
+  background: #f1f1f1;
+  text-decoration: none;
+  color: rgb(90, 90, 90);
+}
+

@@ -22,7 +22,7 @@ thomas = User.create!( {name: 'Thomas', email: 'thomas@gmail.com', password: '12
 
 p 'Users created!'
 
-sevenWonders = Offer.create!( {user_id: fabien.id, game_name: '7 Wonders', description: 'great game', price: 18, game_condition: 'As new', location: 'Paris', delivery_type: ['Colissimo'], language: 'French', active: true} )
+sevenWonders = Offer.create!( {user_id: david.id, game_name: '7 Wonders', description: 'great game', price: 18, game_condition: 'As new', location: 'Paris', delivery_type: ['Colissimo'], language: 'French', active: true} )
 sevenWonders_first = {io: File.open('Seed_images/7-wonders-Asmodee.jpg'), filename: '7_wonders_first_photo'}
 sevenWonders_second = {io: File.open('Seed_images/7-wonders-jeu-de-strategie.jpg'), filename: '7_wonders_second_photo'}
 sevenWonders.photos.attach([sevenWonders_first, sevenWonders_second])
@@ -43,7 +43,7 @@ scythe.photos.attach([scythe_first, scythe_second])
 
 p 'Scythe created!'
 
-wingspan = Offer.create!( {user_id: fabien.id, game_name: 'Wingspan', description: "beautiful game but I don't like birds", price: 40, game_condition: 'Used', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: false} )
+wingspan = Offer.create!( {user_id: david.id, game_name: 'Wingspan', description: "beautiful game but I don't like birds", price: 40, game_condition: 'Used', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: false} )
 wingspan_first = {io: File.open('Seed_images/wingspan_1.jpg'), filename: 'wingspan_first_photo'}
 wingspan_second = {io: File.open('Seed_images/wingspan_2.jpg'), filename: 'wingspan_second_photo'}
 wingspan.photos.attach([wingspan_first, wingspan_second])
