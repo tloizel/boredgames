@@ -69,28 +69,28 @@ ticket_first = {io: File.open('Seed_images/ticket1.jpg'), filename: 'carca_first
 ticket_second = {io: File.open('Seed_images/ticket2.jpeg'), filename: 'carca_second_photo'}
 ticket.photos.attach([ticket_first, ticket_second])
 
-p 'Dixit1 created!'
+p 'Ticket to Ride created!'
 
-dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 22, game_condition: 'Used', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
+dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 17, game_condition: 'Poor', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
 dixit_first2 = {io: File.open('Seed_images/dixit2.jpg'), filename: 'dixit_first_photo'}
 dixit_second2 = {io: File.open('Seed_images/dixit5.jpeg'), filename: 'dixit_second_photo'}
 dixit.photos.attach([dixit_first2, dixit_second2])
 
-p 'Dixit2 created!'
+p 'Dixit1 created!'
 
 dorado = Offer.create!( {user_id: fabien.id, game_name: 'El Dorado', description: "Lovely deck-building game", price: 30, game_condition: 'Good condition', location: 'Paris', delivery_type: ['In person'], language: 'French', active: true} )
 dorado_first = {io: File.open('Seed_images/dorado1.jpg'), filename: 'dorado_first_photo'}
 dorado_second = {io: File.open('Seed_images/dorado2.jpeg'), filename: 'dorado_second_photo'}
 dorado.photos.attach([dorado_first, dorado_second])
 
-p 'TicketToRide created!'
+p 'El Dorado created!'
 
-dixit = Offer.create!( {user_id: thomas.id, game_name: 'Dixit', description: "I know the cards off by heart, tell to sell", price: 10, game_condition: 'Poor', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+dixit = Offer.create!( {user_id: david.id, game_name: 'Dixit', description: "I know the cards off by heart, time to sell", price: 11, game_condition: 'Used', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
 dixit_first1 = {io: File.open('Seed_images/dixit1.jpeg'), filename: 'dixit_first_photo'}
 dixit_second1 = {io: File.open('Seed_images/dixit4.jpeg'), filename: 'dixit_second_photo'}
 dixit.photos.attach([dixit_first1, dixit_second1])
 
-p 'Dorado created!'
+p 'Dixit2 created!'
 
 ile = Offer.create!( {user_id: fabien.id, game_name: 'Ile of Skye', description: "A sort of Carcassonne 2.0, this game is woth playing!", price: 24, game_condition: 'Used', location: 'Nottingham', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
 ile_first = {io: File.open('Seed_images/ile1.jpeg'), filename: 'ile_first_photo'}
@@ -99,12 +99,33 @@ ile.photos.attach([ile_first, ile_second])
 
 p 'Ile of Skye created!'
 
-dixit = Offer.create!( {user_id: david.id, game_name: 'Dixit', description: "Simple but fun game to play with up to 5 players", price: 16, game_condition: 'Good condition', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
-dixit_first3 = {io: File.open('Seed_images/dixit3.jpeg'), filename: 'dixit_first_photo'}
-dixit_second3 = {io: File.open('Seed_images/dixit6.jpeg'), filename: 'dixit_second_photo'}
-dixit.photos.attach([dixit_first3, dixit_second3])
+catan = Offer.create!( {user_id: thomas.id, game_name: 'Catan', description: "Fun resource gathering game to play with up to 5 players", price: 26, game_condition: 'Good condition', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
+catan_first = {io: File.open('Seed_images/catan1.jpeg'), filename: 'catan_first_photo'}
+catan_second = {io: File.open('Seed_images/catan2.jpeg'), filename: 'catan_second_photo'}
+catan.photos.attach([catan_first, catan_second])
 
-p 'Dixit3 created!'
+p 'Catan created!'
+
+quiprend = Offer.create!( {user_id: david.id, game_name: '6 Qui Prend', description: "Super jeu d'ambiance", price: 9, game_condition: 'Used', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
+quiprend_first = {io: File.open('Seed_images/6quiprend1.jpeg'), filename: 'quiprend_first_photo'}
+quiprend_second = {io: File.open('Seed_images/6quiprend2.jpeg'), filename: 'quiprend_second_photo'}
+quiprend.photos.attach([quiprend_first, quiprend_second])
+
+p '6 Qui Prend created!'
+
+uno = Offer.create!( {user_id: fabien.id, game_name: 'Uno', description: "A classic that every household should own", price: 8, game_condition: 'Poor', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+uno_first = {io: File.open('Seed_images/uno1.jpg'), filename: 'uno_first_photo'}
+uno_second = {io: File.open('Seed_images/uno2.jpeg'), filename: 'uno_second_photo'}
+uno.photos.attach([uno_first, uno_second])
+
+p 'Uno created!'
+
+tavernes = Offer.create!( {user_id: fabien.id, game_name: 'Tavernes', description: "Complex engine-building, great for experienced players", price: 36, game_condition: 'Good condition', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+tavernes_first = {io: File.open('Seed_images/tavernes1.jpeg'), filename: 'tavernes_first_photo'}
+tavernes_second = {io: File.open('Seed_images/tavernes2.jpeg'), filename: 'tavernes_second_photo'}
+tavernes.photos.attach([tavernes_first, tavernes_second])
+
+p 'tavernes created!'
 
 p 'All offers have been created!'
 
