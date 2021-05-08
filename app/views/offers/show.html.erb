@@ -2,9 +2,20 @@
 <h2><%= @offer.game_name %></h2>
 <div class="d-flex justify-content-between show-container">
   <div class="h-100">
+
+
+
     <% @offer.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, :class => "rounded" %>
+
+  <a href=<%= cl_image_path photo.key %>
+    data-pswp-width="350"
+    data-pswp-height="350"
+    data-cropped="true"
+    target="_blank">
+    <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, :class => "rounded" %>
+  </a>
     <% end %>
+
 
     <div class="description_box">
       <dl class="row">
