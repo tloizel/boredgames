@@ -46,7 +46,7 @@ const changeBtnState = () => {
   const deliveryInput = document.getElementById('deliveryInput')
   const deliveryBtn = document.getElementById('deliveryBtn')
 
-  deliveryInput.addEventListener('click', () => {
+  deliveryInput.addEventListener('change', () => {
     deliveryBtn.disabled = false;
     console.log('hye')
   });
