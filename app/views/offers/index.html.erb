@@ -8,17 +8,21 @@
   Filter by price
   <i class="fas fa-arrow-<%= params[:sort_by_price] == "DESC" ? "up" : "down" %>"></i>
   <% end %>
+  
+  <div class="row justify-content-center d-flex flex-wrap">
 
-  <div class="row justify-content-left d-flex flex-wrap">
-     <% @offers.each do |offer| %>
-      <div class="card m-3 p-3" style="width: 200px;">
-        <% if offer.photos.first.present? %>
-          <%= cl_image_tag offer.photos.first.key %>
-        <% else %>
-          <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
-        <% end %>
-        <div class="card-body pb-0 d-flex flex-wrap align-content-end justify-content-around">
-          <h5 class="card-title"><%= offer.game_name %></h5>
+    <% @offers.each do |offer| %>
+      
+      <%= link_to(offer) do %>
+      
+      <div class="offer-card">
+
+        <%= cl_image_tag offer.photos.first.key, :height=>200, :width=>200, :crop=>"fill" %>
+        
+        <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
+
+        <div class="offer-card-body">
+          <h5 class="offer-name"><%= offer.game_name %></h5>
           <div>
             <% if offer.game_condition == "As new" %>
               <p class="badge badge-success"><%= offer.game_condition %></p>
@@ -29,12 +33,12 @@
             <% else %>
               <p class="badge badge-danger"><%= offer.game_condition %></p>
             <% end %>
-            <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
-            <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
           </div>
 
         </div>
+
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
