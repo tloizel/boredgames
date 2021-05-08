@@ -18,7 +18,6 @@
   padding: 10px;
   max-width: 177px;
   color: black;
-  margin-bottom: 8px;
 }
 
 .add-review-button > a {
@@ -26,8 +25,11 @@
 }
 
 .add-review-button:hover {
-  background: #f1f1f1;
+  background: #0275d8;
   text-decoration: none;
-  color: rgb(90, 90, 90);
+  color: white;
 }
 
+.review-margin-bottom {
+  margin-bottom: 20px;
+}

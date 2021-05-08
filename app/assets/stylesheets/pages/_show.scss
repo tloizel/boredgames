@@ -1,3 +1,12 @@
 .description_box {
   margin: 30px 0px;
 }
+
+a.mapboxgl-ctrl-logo {
+  display: none;
+  width: 0px;
+}
+
+.mapboxgl-ctrl-bottom-left {
+  opacity: 0;
+}
