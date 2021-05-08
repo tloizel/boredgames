@@ -79,9 +79,9 @@
       boolean: :inline_boolean
     } do |f| %>
 
-    <%= f.input :chosen_delivery, collection: Offer::DELIVERY_TYPES, prompt: "Select delivery", input_html: { class: "mb-2 mr-sm-2", placeholder: "hey" } %>
+    <%= f.input :chosen_delivery, collection: Offer::DELIVERY_TYPES, prompt: "Select delivery", input_html: { class: "mb-2 mr-sm-2", id: "deliveryInput", placeholder: "hey" } %>
 
-    <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
+    <%= f.button :submit, 'Buy this game', disabled: true, class: "btn-primary mb-2", id: "deliveryBtn" %>
   <% end %>
 <% end %>
 
@@ -107,7 +107,7 @@
          position: fixed;
          top: 0;
          bottom: 0;
-        
+
          left: 0;
          right: 0;">
          <div style="display: flex;
@@ -116,7 +116,7 @@
                     flex-direction: column;
                     justify-content: center;">
         <img style="z-index: 9999;
-                    object-fit: contain; 
+                    object-fit: contain;
                     width: 50%;
                     height: 70%;
                     margin: 0 auto;" id="lol2" src="" alt="coucou">
