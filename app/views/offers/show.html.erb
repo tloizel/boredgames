@@ -79,9 +79,9 @@
       boolean: :inline_boolean
     } do |f| %>
 
-    <%= f.input :chosen_delivery, collection: Offer::DELIVERY_TYPES, prompt: "Select delivery", input_html: { class: "mb-2 mr-sm-2", placeholder: "hey" } %>
+    <%= f.input :chosen_delivery, collection: Offer::DELIVERY_TYPES, prompt: "Select delivery", input_html: { class: "mb-2 mr-sm-2", id: "deliveryInput", placeholder: "hey" } %>
 
-    <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
+    <%= f.button :submit, 'Buy this game', disabled: true, class: "btn-primary mb-2", id: "deliveryBtn" %>
   <% end %>
 <% end %>
 
@@ -103,4 +103,5 @@
   <div id="lol3">
     <img id="lol2" src="" alt="coucou">
   </div>
+
 </div>
