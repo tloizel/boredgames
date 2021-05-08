@@ -42,6 +42,17 @@ if (href[href.length - 1] === "#") {
   }
 }
 
+const changeBtnState = () => {
+  const deliveryInput = document.getElementById('deliveryInput')
+  const deliveryBtn = document.getElementById('deliveryBtn')
+
+  deliveryInput.addEventListener('click', () => {
+    deliveryBtn.disabled = false;
+    console.log('hye')
+  });
+}
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initMapbox();
@@ -49,5 +60,7 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initSwiper();
   initLightBox();
+  changeBtnState();
 });
+
 
