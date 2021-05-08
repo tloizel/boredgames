@@ -73,7 +73,7 @@
                       <% end %>
 
                       <% if ((offer.purchases.any?) && (offer.purchases.first.reviews.any?)) %>
-                        
+
                         <div class="review-block">
                           <div class="review-content">
                             <%= offer.purchases.first.reviews.first.content %>
@@ -152,11 +152,11 @@
                       </div>
 
                       <% else %>
-                      <div class="add-review-button">
-                        <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer, purchase)%>
+                      <div class="review-margin-bottom d-flex justify-content-center">
+                        <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer, purchase), {class: "add-review-button"} %>
                       </div>
                       <% end %>
-                   
+
 
                   </div>
                 </div>
