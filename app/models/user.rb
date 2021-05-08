@@ -9,17 +9,17 @@ class User < ApplicationRecord
   has_many :purchases
 
   def average_rating
-    Offer.where 
+    Offer.where
     @past_offers = Offer.where(user_id: self.id, active: false)
     @all_ratings = []
     @past_offers.each do |sale|
-        (@all_ratings << sale.purchases.first.reviews.first.rating) if (sale.purchases.any? && sale.purchases.first.reviews.any?) 
+      (@all_ratings << sale.purchases.first.reviews.first.rating) if (sale.purchases.any? && sale.purchases.first.reviews.any?)
     end
-    @average = @all_ratings.inject(0.0) {|sum, el| sum + el} / @all_ratings.size
-    if @all_ratings.any? 
+    @average = @all_ratings.inject(0.0) { |sum, el| sum + el } / @all_ratings.size
+    if @all_ratings.any?
       return @average
     else
-      return "no ratings yet"
+      return "unrated"
     end
   end
 end
