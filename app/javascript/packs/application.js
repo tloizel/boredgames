@@ -26,7 +26,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
-import { swiper } from '../plugins/init_swiper';
+import { initSwiper } from '../plugins/init_swiper';
 
 
 // Internal imports, e.g:
@@ -45,6 +45,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
-  swiper();
+  initSwiper();
 });
 
