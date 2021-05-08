@@ -71,7 +71,21 @@
                       <% else %>
                         <p class="badge badge-danger"><%= offer.game_condition %></p>
                       <% end %>
-                    </div>
+
+                      <% if offer.purchases.first.reviews.any? %>
+                      <h6>Your review</h6>
+                      <%= offer.purchases.first.reviews.first.content %>
+                      <% rating = offer.purchases.first.reviews.first.rating %>
+                      <% rating.times do  %>
+                        <i class="fas fa-star golden-stars"></i>
+                      <% end %>
+                      <% (5-rating).times do  %>
+                        <i class="far fa-star golden-stars"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer_id, purchase), class: 'btn btn-primary' %>
+                    <% end %>
+
                   </div>
                 </div>
                 <% end %>

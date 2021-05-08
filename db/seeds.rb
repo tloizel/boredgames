@@ -71,7 +71,7 @@ ticket.photos.attach([ticket_first, ticket_second])
 
 p 'Ticket to Ride created!'
 
-dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 17, game_condition: 'Poor', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
+dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 17, game_condition: 'Poor', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
 dixit_first2 = {io: File.open('Seed_images/dixit2.jpg'), filename: 'dixit_first_photo'}
 dixit_second2 = {io: File.open('Seed_images/dixit5.jpeg'), filename: 'dixit_second_photo'}
 dixit.photos.attach([dixit_first2, dixit_second2])
@@ -85,7 +85,7 @@ dorado.photos.attach([dorado_first, dorado_second])
 
 p 'El Dorado created!'
 
-dixit = Offer.create!( {user_id: david.id, game_name: 'Dixit', description: "I know the cards off by heart, time to sell", price: 11, game_condition: 'Used', location: 'London', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+dixit = Offer.create!( {user_id: david.id, game_name: 'Dixit', description: "I know the cards off by heart, time to sell", price: 11, game_condition: 'Used', location: '11 rue villa gaudelet', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
 dixit_first1 = {io: File.open('Seed_images/dixit1.jpeg'), filename: 'dixit_first_photo'}
 dixit_second1 = {io: File.open('Seed_images/dixit4.jpeg'), filename: 'dixit_second_photo'}
 dixit.photos.attach([dixit_first1, dixit_second1])

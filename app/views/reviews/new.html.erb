@@ -1,9 +1,11 @@
-<div class="container pt-3">
-  <h2>New review for your purchase of <%= @purchase.offer.game_name %> </h2>
+<div class="form-container pt-3">
+  <h2 class="mb-0">Leave a review for <%= @purchase.offer.user.name %></h2>
+  <h2>(<%= @purchase.offer.game_name %>)</h2>
+
   <%= simple_form_for ([@offer, @purchase, @review]) do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>    
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.input :content, placeholder: 'Review', label: false %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+    <%= f.button :submit, class: "btn btn-primary mt-3" %>
   <% end %>
   <div><%= link_to "Cancel", dashboard_path(@offer), class: "btn btn-link"%></div>
 </div>
