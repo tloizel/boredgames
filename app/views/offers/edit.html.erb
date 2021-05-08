@@ -1,14 +1,14 @@
-<div class="container pt-3">
-  <h2>Edit you ad</h2>
-  <%= simple_form_for @offer do |f| %>
+<div class="form-container pt-3">
+  <h2>Edit your ad</h2>
+  <%= simple_form_for @offer, defaults: { input_html: { class: 'offer-form' } } do |f| %>
     <%= f.input :game_name %>
     <%= f.input :description %>
     <%= f.input :game_condition, collection: [ "As new", "Good condition", "Used", "Poor"] %>
     <%= f.input :price %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'unrounded' } %>
     <%= f.input :location %>
     <%= f.input :delivery_type, as: :check_boxes, collection: Offer::DELIVERY_TYPES %>
     <%= f.input :language %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :submit, class: "btn btn-primary mt-3" %>
   <% end %>
 </div>
