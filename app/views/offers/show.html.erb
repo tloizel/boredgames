@@ -1,66 +1,74 @@
-<div class="container pt-3">
-<h2><%= @offer.game_name %></h2>
-<div class="d-flex justify-content-between show-container">
-  <div class="h-100">
-    <% @offer.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, :class => "rounded" %>
-    <% end %>
+<div class="container mt-3 pt-3">
+  <div class="d-flex justify-content-between show-container">
+    <div class="h-100">
+    <h1><%= @offer.game_name %></h1>
+      <div class="swiper-container" id="show_carrousel">
+        <div class="swiper-wrapper">
+            <% @offer.photos.each do |photo| %>
+             <div class="swiper-slider">
+                <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, :class => "rounded" %>
+              </div>
+            <% end %>
 
-    <div class="description_box">
-      <dl class="row">
-        <dt class="col-sm-3">Description</dt>
-        <dd class="col-sm-9"><%= @offer.description %></dd>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
 
-        <dt class="col-sm-3">Condition</dt>
-        <dd class="col-sm-9">
-        <% if @offer.game_condition == "As new" %>
-          <p class="badge badge-success mb-0"><%= @offer.game_condition %></p>
-        <% elsif @offer.game_condition == "Good condition" %>
-          <p class="badge badge-primary mb-0"><%= @offer.game_condition %></p>
-        <% elsif @offer.game_condition == "Used" %>
-          <p class="badge badge-warning mb-0"><%= @offer.game_condition %></p>
-        <% else %>
-          <p class="badge badge-danger mb-0"><%= @offer.game_condition %></p>
-        <% end %>
-        </dd>
+      <div class="description_box">
+        <dl class="row m-0">
+          <dt class="col-sm-3">Description</dt>
+          <dd class="col-sm-9"><%= @offer.description %></dd>
 
-        <dt class="col-sm-3">Price</dt>
-        <dd class="col-sm-9"><%= number_to_currency(@offer.price, :unit => "€")%></dd>
-
-        <dt class="col-sm-3">Location</dt>
-        <dd class="col-sm-9"><%= @offer.location %></dd>
-
-        <dt class="col-sm-3">Delivery options</dt>
-        <dd class="col-sm-9">
-          <% @offer.delivery_type.each do |delivery| %>
-          <p class="badge badge-secondary mb-0"><%= delivery %></p>
+          <dt class="col-sm-3">Condition</dt>
+          <dd class="col-sm-9">
+          <% if @offer.game_condition == "As new" %>
+            <p class="badge badge-success mb-0"><%= @offer.game_condition %></p>
+          <% elsif @offer.game_condition == "Good condition" %>
+            <p class="badge badge-primary mb-0"><%= @offer.game_condition %></p>
+          <% elsif @offer.game_condition == "Used" %>
+            <p class="badge badge-warning mb-0"><%= @offer.game_condition %></p>
+          <% else %>
+            <p class="badge badge-danger mb-0"><%= @offer.game_condition %></p>
           <% end %>
-        </dd>
+          </dd>
 
-        <dt class="col-sm-3">Language</dt>
-        <dd class="col-sm-9"><%= @offer.language %></dd>
+          <dt class="col-sm-3">Price</dt>
+          <dd class="col-sm-9"><%= number_to_currency(@offer.price, :unit => "€")%></dd>
 
-        <dt class="col-sm-3">Seller</dt>
-        <dd class="col-sm-9"><%= @offer.user.name %> - <%=@offer.user.average_rating%>
-        <% if @offer.user.average_rating.is_a? Float %>
-        <i class="fas fa-star golden-stars"></i>
-        <% else %>
-        <% end %>
-        </dd>
-        <% if @offer.purchases.first && @offer.purchases.first.user != current_user %>
-        <dt class="col-sm-3">Buyer</dt>
-        <dd class="col-sm-9"><%= @offer.purchases.first.user.email %></dd>
-        <% end %>
-      </dl>
+          <dt class="col-sm-3">Location</dt>
+          <dd class="col-sm-9"><%= @offer.location %></dd>
+
+          <dt class="col-sm-3">Delivery options</dt>
+          <dd class="col-sm-9">
+            <% @offer.delivery_type.each do |delivery| %>
+            <p class="badge badge-secondary mb-0"><%= delivery %></p>
+            <% end %>
+          </dd>
+
+          <dt class="col-sm-3">Language</dt>
+          <dd class="col-sm-9"><%= @offer.language %></dd>
+
+          <dt class="col-sm-3">Seller</dt>
+          <dd class="col-sm-9"><%= @offer.user.name %> - <%=@offer.user.average_rating%>
+          <% if @offer.user.average_rating.is_a? Float %>
+          <i class="fas fa-star golden-stars"></i>
+          <% else %>
+          <% end %>
+          </dd>
+          <% if @offer.purchases.first && @offer.purchases.first.user != current_user %>
+          <dt class="col-sm-3">Buyer</dt>
+          <dd class="col-sm-9"><%= @offer.purchases.first.user.email %></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+
+    <div id="map"
+      style="align-self: center; width: 100%; height: 400px; border-radius: 10px"
+      data-marker="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-
-  <div id="map"
-     style="width: 100%; height: 400px; border-radius: 10px"
-     data-marker="<%= @marker.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
 
 
   <% if policy(@offer).edit? %>
@@ -74,18 +82,18 @@
               data: { confirm: "Are you sure?" } %></div>
   <% end %>
 
-<% if policy(@offer).purchase? %>
-  <%= simple_form_for ([@offer, @purchase]),
-    wrapper: :inline_form,
-    html: { class: "form-inline" },
-    wrapper_mappings: {
-      boolean: :inline_boolean
-    } do |f| %>
+  <% if policy(@offer).purchase? %>
+    <%= simple_form_for ([@offer, @purchase]),
+      wrapper: :inline_form,
+      html: { class: "form-inline" },
+      wrapper_mappings: {
+        boolean: :inline_boolean
+      } do |f| %>
 
-    <%= f.input :chosen_delivery, collection: Offer::DELIVERY_TYPES, prompt: "Select delivery", input_html: { class: "mb-2 mr-sm-2", placeholder: "hey" } %>
+      <%= f.input :chosen_delivery, collection: Offer::DELIVERY_TYPES, prompt: "Select delivery", input_html: { class: "mb-2 mr-sm-2", placeholder: "hey" } %>
 
-    <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
+      <%= f.button :submit, 'Buy this game', class: "btn-primary mb-2" %>
+    <% end %>
   <% end %>
-<% end %>
 
 </div>
