@@ -72,19 +72,26 @@
                         <p class="badge badge-danger"><%= offer.game_condition %></p>
                       <% end %>
 
-                      <% if offer.purchases.first.reviews.any? %>
-                      <h6>Your review</h6>
-                      <%= offer.purchases.first.reviews.first.content %>
-                      <% rating = offer.purchases.first.reviews.first.rating %>
-                      <% rating.times do  %>
-                        <i class="fas fa-star golden-stars"></i>
+                      <% if ((offer.purchases.any?) && (offer.purchases.first.reviews.any?)) %>
+                        
+                        <div class="review-block">
+                          <div class="review-content">
+                            <%= offer.purchases.first.reviews.first.content %>
+                          </div>
+
+                          <div class="review-rating">
+                          <% rating = offer.purchases.first.reviews.first.rating %>
+                          <% rating.times do  %>
+                            <i class="fas fa-star golden-stars"></i>
+                          <% end %>
+                          <% (5-rating).times do  %>
+                            <i class="far fa-star golden-stars"></i>
+                          <% end %>
+                          </div>
+
+                      <% else %>
                       <% end %>
-                      <% (5-rating).times do  %>
-                        <i class="far fa-star golden-stars"></i>
-                      <% end %>
-                    <% else %>
-                      <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer_id, purchase), class: 'btn btn-primary' %>
-                    <% end %>
+                    </div>
 
                   </div>
                 </div>
@@ -108,37 +115,49 @@
         <div class="card-body">
           <div class="row justify-content-center flex-wrap">
             <div class="col-12 d-flex flex-wrap">
-              <% @my_purchases.each do |offer| %>
-                <%= link_to(offer) do %>
+              <% @my_purchases.each do |purchase| %>
+                <%= link_to(purchase.offer) do %>
                 <div class="offer-card">
-                  <%= cl_image_tag offer.photos.first.key, :height=>197, :width=>197, :crop=>"fill" %>
-                  <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
+                  <%= cl_image_tag purchase.offer.photos.first.key, :height=>197, :width=>197, :crop=>"fill" %>
+                  <div class="offer-price"><%= number_to_currency(purchase.offer.price, :unit => "€")%></div>
                   <div class="offer-card-body">
-                    <h5 class="offer-name"><%= offer.game_name %></h5>
+                    <h5 class="offer-name"><%= purchase.offer.game_name %></h5>
                     <div>
-                      <% if offer.game_condition == "As new" %>
-                        <p class="badge badge-success"><%= offer.game_condition %></p>
-                      <% elsif offer.game_condition == "Good condition" %>
-                        <p class="badge badge-primary"><%= offer.game_condition %></p>
-                      <% elsif offer.game_condition == "Used" %>
-                        <p class="badge badge-warning"><%= offer.game_condition %></p>
+                      <% if purchase.offer.game_condition == "As new" %>
+                        <p class="badge badge-success"><%= purchase.offer.game_condition %></p>
+                      <% elsif purchase.offer.game_condition == "Good condition" %>
+                        <p class="badge badge-primary"><%= purchase.offer.game_condition %></p>
+                      <% elsif purchase.offer.game_condition == "Used" %>
+                        <p class="badge badge-warning"><%= purchase.offer.game_condition %></p>
                       <% else %>
-                        <p class="badge badge-danger"><%= offer.game_condition %></p>
+                        <p class="badge badge-danger"><%= purchase.offer.game_condition %></p>
                       <% end %>
                     </div>
-                    <% if purchase.reviews.any? %>
-                    <h6>Your review</h6>
-                    <%= purchase.reviews.first.content %>
-                    <% rating = purchase.reviews.first.rating %>
-                    <% rating.times do  %>
-                      <i class="fas fa-star golden-stars"></i>
-                    <% end %>
-                    <% (5-rating).times do  %>
-                      <i class="far fa-star golden-stars"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer_id, purchase), class: 'btn btn-primary' %>
-                  <% end %>
+
+                      <% if purchase.reviews.any? %>
+
+                      <div class="review-block">
+                        <div class="review-content">
+                          <%= purchase.reviews.first.content %>
+                        </div>
+                        <div class="review-rating">
+                          <% rating = purchase.reviews.first.rating %>
+                          <% rating.times do  %>
+                            <i class="fas fa-star golden-stars"></i>
+                          <% end %>
+                          <% (5-rating).times do  %>
+                            <i class="far fa-star golden-stars"></i>
+                          <% end %>
+                        </div>
+                      </div>
+
+                      <% else %>
+                      <div class="add-review-button">
+                        <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer, purchase)%>
+                      </div>
+                      <% end %>
+                   
+
                   </div>
                 </div>
                 <% end %>

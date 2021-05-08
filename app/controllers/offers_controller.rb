@@ -7,7 +7,7 @@ class OffersController < ApplicationController
     @my_purchases = current_user.purchases
     authorize @my_offers
     authorize @my_sales
-  end
+  end 
 
   def index
     @offers = policy_scope(Offer)#.order(created_at: :desc)

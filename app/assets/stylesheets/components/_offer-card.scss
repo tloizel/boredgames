@@ -10,6 +10,8 @@
   position: relative;
   top: 0;
   transition: top ease 0.3s;
+  height: fit-content;
+  padding-bottom: 10px;
 }
 
 .offer-card:hover {
@@ -18,7 +20,7 @@
 
 .offer-price {
   position: absolute;
-  bottom: 70px;
+  top: 185px;
   right: 16px;
   background-color: #727286;
   color: white;
@@ -30,10 +32,38 @@
 }
 
 .offer-card-body {
-  margin: 5px 10px;
+  margin: 14px 10px;
   color: black;
 }
 
 .offer-card-body > h5 {
   font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.home-offer-card-body {
+  margin: 14px 10px 0px 10px;
+  color: black;
+}
+
+.home-offer-card-body > h5 {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+.home-offer-price {
+    position: absolute;
+    top: 169px;
+    right: 16px;
+    background-color: #727286;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.offer-name {
+  color: black;
 }
