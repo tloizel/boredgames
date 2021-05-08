@@ -15,29 +15,26 @@
           <div class="row justify-content-center flex-wrap">
             <div class="col-12 d-flex flex-wrap">
               <% @my_offers.each do |offer| %>
-              <div class="card m-3 p-3" style="width: 200px;">
-                <% if offer.photos.first.present? %>
-                  <%= cl_image_tag offer.photos.first.key %>
-                <% else %>
-                  <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
-                <% end %>
-                <div class="card-body d-flex flex-wrap align-content-end justify-content-around">
-                  <h5 class="card-title"><%= offer.game_name %></h5>
-                  <div>
-                    <% if offer.game_condition == "As new" %>
-                      <p class="badge badge-success"><%= offer.game_condition %></p>
-                    <% elsif offer.game_condition == "Good condition" %>
-                      <p class="badge badge-primary"><%= offer.game_condition %></p>
-                    <% elsif offer.game_condition == "Used" %>
-                      <p class="badge badge-warning"><%= offer.game_condition %></p>
-                    <% else %>
-                      <p class="badge badge-danger"><%= offer.game_condition %></p>
-                    <% end %>
-                    <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
-                    <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
+                <%= link_to(offer) do %>
+                <div class="offer-card">
+                  <%= cl_image_tag offer.photos.first.key, :height=>197, :width=>197, :crop=>"fill" %>
+                  <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
+                  <div class="offer-card-body">
+                    <h5 class="offer-name"><%= offer.game_name %></h5>
+                    <div>
+                      <% if offer.game_condition == "As new" %>
+                        <p class="badge badge-success"><%= offer.game_condition %></p>
+                      <% elsif offer.game_condition == "Good condition" %>
+                        <p class="badge badge-primary"><%= offer.game_condition %></p>
+                      <% elsif offer.game_condition == "Used" %>
+                        <p class="badge badge-warning"><%= offer.game_condition %></p>
+                      <% else %>
+                        <p class="badge badge-danger"><%= offer.game_condition %></p>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
-              </div>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -58,16 +55,14 @@
           <div class="row justify-content-center flex-wrap">
             <div class="col-12 d-flex flex-wrap">
               <% @my_sales.each do |offer| %>
-              <div class="card m-3 p-3" style="width: 200px;">
-                <% if offer.photos.first.present? %>
-                  <%= cl_image_tag offer.photos.first.key %>
-                <% else %>
-                  <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
-                <% end %>
-                <div class="card-body d-flex flex-wrap align-content-end justify-content-around">
-                  <h5 class="card-title"><%= offer.game_name %></h5>
-                  <div>
-                    <% if offer.game_condition == "As new" %>
+                <%= link_to(offer) do %>
+                <div class="offer-card">
+                  <%= cl_image_tag offer.photos.first.key, :height=>197, :width=>197, :crop=>"fill" %>
+                  <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
+                  <div class="offer-card-body">
+                    <h5 class="offer-name"><%= offer.game_name %></h5>
+                    <div>
+                      <% if offer.game_condition == "As new" %>
                         <p class="badge badge-success"><%= offer.game_condition %></p>
                       <% elsif offer.game_condition == "Good condition" %>
                         <p class="badge badge-primary"><%= offer.game_condition %></p>
@@ -76,11 +71,10 @@
                       <% else %>
                         <p class="badge badge-danger"><%= offer.game_condition %></p>
                       <% end %>
-                    <p class="card-text"><%= number_to_currency(offer.price, :unit => "€")%></p>
-                    <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
+                    </div>
                   </div>
                 </div>
-              </div>
+                <% end %>
               <% end %>
             </div>
           </div>
@@ -100,28 +94,25 @@
         <div class="card-body">
           <div class="row justify-content-center flex-wrap">
             <div class="col-12 d-flex flex-wrap">
-              <% @my_purchases.each do |purchase| %>
-              <div class="card m-3 p-3" style="width: 200px;">
-                <% if purchase.offer.photos.first.present? %>
-                  <%= cl_image_tag purchase.offer.photos.first.key %>
-                <% else %>
-                  <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
-                <% end %>
-                <div class="card-body d-flex flex-wrap align-content-end justify-content-around">
-                  <h5 class="card-title"><%= purchase.offer.game_name %></h5>
-                  <div>
-                    <% if purchase.offer.game_condition == "As new" %>
-                        <p class="badge badge-success"><%= purchase.offer.game_condition %></p>
-                      <% elsif purchase.offer.game_condition == "Good condition" %>
-                        <p class="badge badge-primary"><%= purchase.offer.game_condition %></p>
-                      <% elsif purchase.offer.game_condition == "Used" %>
-                        <p class="badge badge-warning"><%= purchase.offer.game_condition %></p>
+              <% @my_purchases.each do |offer| %>
+                <%= link_to(offer) do %>
+                <div class="offer-card">
+                  <%= cl_image_tag offer.photos.first.key, :height=>197, :width=>197, :crop=>"fill" %>
+                  <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
+                  <div class="offer-card-body">
+                    <h5 class="offer-name"><%= offer.game_name %></h5>
+                    <div>
+                      <% if offer.game_condition == "As new" %>
+                        <p class="badge badge-success"><%= offer.game_condition %></p>
+                      <% elsif offer.game_condition == "Good condition" %>
+                        <p class="badge badge-primary"><%= offer.game_condition %></p>
+                      <% elsif offer.game_condition == "Used" %>
+                        <p class="badge badge-warning"><%= offer.game_condition %></p>
                       <% else %>
-                        <p class="badge badge-danger"><%= purchase.offer.game_condition %></p>
+                        <p class="badge badge-danger"><%= offer.game_condition %></p>
                       <% end %>
-                    <p class="card-text"><%= number_to_currency(purchase.offer.price, :unit => "€")%></p>
-                    <%= link_to 'See offer', offer_path(purchase.offer), class: 'btn btn-primary' %>
-                  <% if purchase.reviews.any? %>
+                    </div>
+                    <% if purchase.reviews.any? %>
                     <h6>Your review</h6>
                     <%= purchase.reviews.first.content %>
                     <% rating = purchase.reviews.first.rating %>
@@ -134,10 +125,9 @@
                   <% else %>
                     <%= link_to 'Rate this purchase', new_offer_purchase_review_path(purchase.offer_id, purchase), class: 'btn btn-primary' %>
                   <% end %>
-
                   </div>
                 </div>
-              </div>
+                <% end %>
               <% end %>
             </div>
           </div>
