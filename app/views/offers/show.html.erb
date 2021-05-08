@@ -6,16 +6,7 @@
 
 
     <% @offer.photos.each do |photo| %>
-
-<% if false %>
-  <a href=<%= cl_image_path photo.key %>
-    data-pswp-width="350"
-    data-pswp-height="350"
-    data-cropped="true"
-    target="_blank">
-  </a>
-<% end %>
-    <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class:"img_tag", data: { img: cl_image_path(photo.key)} %>
+      <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class:"img_tag", data: { img: cl_image_path(photo.key)} %>
     <% end %>
 
 
