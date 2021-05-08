@@ -1,0 +1,39 @@
+
+
+.offer-card {
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: white;
+  margin: 20px 15px;
+  text-decoration: none;
+  box-shadow: 3px 7px 9px 1px rgba(0,0,0,0.35);
+  position: relative;
+  top: 0;
+  transition: top ease 0.3s;
+}
+
+.offer-card:hover {
+  top: -10px;
+}
+
+.offer-price {
+  position: absolute;
+  bottom: 70px;
+  right: 16px;
+  background-color: #727286;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.offer-card-body {
+  margin: 5px 10px;
+  color: black;
+}
+
+.offer-card-body > h5 {
+  font-weight: 700;
+}
