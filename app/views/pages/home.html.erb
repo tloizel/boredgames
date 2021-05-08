@@ -21,58 +21,68 @@
     <div class="swiper-slide">
       <div class="col-12 d-flex">
         <% @offers1.each do |offer| %>
-          <div class="card m-3 p-3" style="width: 200px;">
-            <% if offer.photos.first.present? %>
-              <%= cl_image_tag offer.photos.first.key %>
+      
+      <%= link_to(offer) do %>
+      
+      <div class="offer-card">
+
+        <%= cl_image_tag offer.photos.first.key, :height=>180, :width=>180, :crop=>"fill" %>
+        
+        <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
+
+        <div class="offer-card-body">
+          <h5 class="offer-name"><%= offer.game_name %></h5>
+          <div>
+            <% if offer.game_condition == "As new" %>
+              <p class="badge badge-success"><%= offer.game_condition %></p>
+            <% elsif offer.game_condition == "Good condition" %>
+              <p class="badge badge-primary"><%= offer.game_condition %></p>
+            <% elsif offer.game_condition == "Used" %>
+              <p class="badge badge-warning"><%= offer.game_condition %></p>
             <% else %>
-              <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
+              <p class="badge badge-danger"><%= offer.game_condition %></p>
             <% end %>
-            <div class="card-body pb-0 d-flex flex-wrap align-content-end justify-content-around">
-              <h5 class="card-title"><%= offer.game_name %></h5>
-              <div>
-                <% if offer.game_condition == "As new" %>
-                  <p class="badge badge-success"><%= offer.game_condition %></p>
-                <% elsif offer.game_condition == "Good condition" %>
-                  <p class="badge badge-primary"><%= offer.game_condition %></p>
-                <% elsif offer.game_condition == "Used" %>
-                  <p class="badge badge-warning"><%= offer.game_condition %></p>
-                <% else %>
-                  <p class="badge badge-danger"><%= offer.game_condition %></p>
-                <% end %>
-                <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
-              </div>
-            </div>
           </div>
-        <% end %>
+
+        </div>
+
+      </div>
+      <% end %>
+    <% end %>
       </div>
     </div>
 
     <div class="swiper-slide">
       <div class="col-12 d-flex">
-        <% @offers2.each do |offer| %>
-          <div class="card m-3 p-3" style="width: 200px;">
-            <% if offer.photos.first.present? %>
-              <%= cl_image_tag offer.photos.first.key %>
+       <% @offers2.each do |offer| %>
+      
+      <%= link_to(offer) do %>
+      
+      <div class="offer-card">
+
+        <%= cl_image_tag offer.photos.first.key, :height=>180, :width=>180, :crop=>"fill" %>
+        
+        <div class="offer-price"><%= number_to_currency(offer.price, :unit => "€")%></div>
+
+        <div class="offer-card-body">
+          <h5 class="offer-name"><%= offer.game_name %></h5>
+          <div>
+            <% if offer.game_condition == "As new" %>
+              <p class="badge badge-success"><%= offer.game_condition %></p>
+            <% elsif offer.game_condition == "Good condition" %>
+              <p class="badge badge-primary"><%= offer.game_condition %></p>
+            <% elsif offer.game_condition == "Used" %>
+              <p class="badge badge-warning"><%= offer.game_condition %></p>
             <% else %>
-              <img class="card-img-top" src="https://source.unsplash.com/random/?boardgame" alt="Card image cap">
+              <p class="badge badge-danger"><%= offer.game_condition %></p>
             <% end %>
-            <div class="card-body pb-0 d-flex flex-wrap align-content-end justify-content-around">
-              <h5 class="card-title"><%= offer.game_name %></h5>
-              <div>
-                <% if offer.game_condition == "As new" %>
-                  <p class="badge badge-success"><%= offer.game_condition %></p>
-                <% elsif offer.game_condition == "Good condition" %>
-                  <p class="badge badge-primary"><%= offer.game_condition %></p>
-                <% elsif offer.game_condition == "Used" %>
-                  <p class="badge badge-warning"><%= offer.game_condition %></p>
-                <% else %>
-                  <p class="badge badge-danger"><%= offer.game_condition %></p>
-                <% end %>
-                <%= link_to 'See offer', offer_path(offer), class: 'btn btn-primary' %>
-              </div>
-            </div>
           </div>
-        <% end %>
+
+        </div>
+
+      </div>
+      <% end %>
+    <% end %>
       </div>
     </div>
 
