@@ -6,14 +6,7 @@
 
 
     <% @offer.photos.each do |photo| %>
-
-  <a href=<%= cl_image_path photo.key %>
-    data-pswp-width="350"
-    data-pswp-height="350"
-    data-cropped="true"
-    target="_blank">
-    <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, :class => "rounded" %>
-  </a>
+      <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class:"img_tag", data: { img: cl_image_path(photo.key)} %>
     <% end %>
 
 
@@ -99,4 +92,28 @@
   <% end %>
 <% end %>
 
+</div>
+
+<div id="lol"
+  style="display: none;
+         height: 100vh;
+         width: 100vw;
+         background-color: rgba(0, 0, 0, 0.3);
+         position: fixed;
+         top: 0;
+         bottom: 0;
+        
+         left: 0;
+         right: 0;">
+         <div style="display: flex;
+                    width: 100%;
+                    height: 100%;
+                    flex-direction: column;
+                    justify-content: center;">
+        <img style="z-index: 9999;
+                    object-fit: contain; 
+                    width: 50%;
+                    height: 70%;
+                    margin: 0 auto;" id="lol2" src="" alt="coucou">
+         </div>
 </div>

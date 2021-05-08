@@ -27,6 +27,8 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSwiper } from '../plugins/init_swiper';
+import { initLightBox } from '../plugins/init_light_box_vanilla';
+
 
 
 // Internal imports, e.g:
@@ -46,5 +48,6 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initStarRating();
   initSwiper();
+  initLightBox();
 });
 
