@@ -22,7 +22,7 @@ thomas = User.create!( {name: 'Thomas', email: 'thomas@gmail.com', password: '12
 
 p 'Users created!'
 
-sevenWonders = Offer.create!( {user_id: fabien.id, game_name: '7 Wonders', description: 'great game', price: 20, game_condition: 'As new', location: 'Paris', delivery_type: ['Colissimo'], language: 'French', active: true} )
+sevenWonders = Offer.create!( {user_id: fabien.id, game_name: '7 Wonders', description: 'great game', price: 18, game_condition: 'As new', location: 'Paris', delivery_type: ['Colissimo'], language: 'French', active: true} )
 sevenWonders_first = {io: File.open('Seed_images/7-wonders-Asmodee.jpg'), filename: '7_wonders_first_photo'}
 sevenWonders_second = {io: File.open('Seed_images/7-wonders-jeu-de-strategie.jpg'), filename: '7_wonders_second_photo'}
 sevenWonders.photos.attach([sevenWonders_first, sevenWonders_second])
@@ -57,7 +57,7 @@ chess.photos.attach([chess_first, chess_second])
 
 p 'Chess created!'
 
-carcassonne = Offer.create!( {user_id: fabien.id, game_name: 'Carcassonne', description: "Great game to play as a family, suitable for all ages", price: 15, game_condition: 'Poor', location: 'Glasgow', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+carcassonne = Offer.create!( {user_id: fabien.id, game_name: 'Carcassonne', description: "Great game to play as a family, suitable for all ages", price: 16, game_condition: 'Poor', location: 'Glasgow', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
 carcassonne_first = {io: File.open('Seed_images/carca1.jpeg'), filename: 'carca_first_photo'}
 carcassonne_second = {io: File.open('Seed_images/carca2.jpeg'), filename: 'carca_second_photo'}
 carcassonne.photos.attach([carcassonne_first, carcassonne_second])
@@ -71,7 +71,7 @@ ticket.photos.attach([ticket_first, ticket_second])
 
 p 'Dixit1 created!'
 
-dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 20, game_condition: 'Used', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
+dixit = Offer.create!( {user_id: fabien.id, game_name: 'Dixit', description: "I have a newer version of the game", price: 22, game_condition: 'Used', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
 dixit_first2 = {io: File.open('Seed_images/dixit2.jpg'), filename: 'dixit_first_photo'}
 dixit_second2 = {io: File.open('Seed_images/dixit5.jpeg'), filename: 'dixit_second_photo'}
 dixit.photos.attach([dixit_first2, dixit_second2])
@@ -92,14 +92,14 @@ dixit.photos.attach([dixit_first1, dixit_second1])
 
 p 'Dorado created!'
 
-ile = Offer.create!( {user_id: fabien.id, game_name: 'Ile of Skye', description: "A sort of Carcassonne 2.0, this game is woth playing!", price: 20, game_condition: 'Used', location: 'Nottingham', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
+ile = Offer.create!( {user_id: fabien.id, game_name: 'Ile of Skye', description: "A sort of Carcassonne 2.0, this game is woth playing!", price: 24, game_condition: 'Used', location: 'Nottingham', delivery_type: ['Colissimo', 'In person'], language: 'English', active: true} )
 ile_first = {io: File.open('Seed_images/ile1.jpeg'), filename: 'ile_first_photo'}
 ile_second = {io: File.open('Seed_images/ile2.jpeg'), filename: 'ile_second_photo'}
 ile.photos.attach([ile_first, ile_second])
 
 p 'Ile of Skye created!'
 
-dixit = Offer.create!( {user_id: david.id, game_name: 'Dixit', description: "Simple but fun game to play with up to 5 players", price: 20, game_condition: 'Good condition', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
+dixit = Offer.create!( {user_id: david.id, game_name: 'Dixit', description: "Simple but fun game to play with up to 5 players", price: 16, game_condition: 'Good condition', location: 'Paris', delivery_type: ['Colissimo', 'In person'], language: 'French', active: true} )
 dixit_first3 = {io: File.open('Seed_images/dixit3.jpeg'), filename: 'dixit_first_photo'}
 dixit_second3 = {io: File.open('Seed_images/dixit6.jpeg'), filename: 'dixit_second_photo'}
 dixit.photos.attach([dixit_first3, dixit_second3])
